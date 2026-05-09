@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact — Karan Pandey</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-page { padding:72px 0 40px; }
+
+.contact-grid {
+  display:grid; grid-template-columns:1fr 480px;
+  gap:56px; align-items:start;
+}
+
+.contact-intro { margin-bottom:36px; }
+.contact-heading {
+  font-size:clamp(28px,4vw,42px); font-weight:700;
+  color:#fff; line-height:1.15; letter-spacing:-0.02em;
+  margin-bottom:16px;
+}
+.contact-heading .g { color:var(--green); }
+.contact-subtext {
+  font-family:var(--sans); font-size:14px;
+  color:var(--muted); line-height:1.8;
+}
+.contact-subtext strong { color:var(--text); font-weight:400; }
+
+.availability {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:var(--radius-lg); overflow:hidden;
+  margin-bottom:24px;
+}
+.avail-header {
+  padding:12px 18px;
+  border-bottom:1px solid var(--border);
+  background:var(--bg3);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:10px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;
+}
+.avail-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:11px 18px; border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+.avail-row:last-child { border-bottom:none; }
+.avail-name { color:var(--muted); }
+.avail-status { display:flex; align-items:center; gap:6px; }
+.avail-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--green); box-shadow:0 0 5px var(--green);
+  animation:pulse 2s ease-in-out infinite;
+}
+.avail-dot.filled { background:var(--muted2); box-shadow:none; animation:none; }
+.avail-label { font-size:11px; color:var(--green); }
+.avail-label.filled { color:var(--muted2); }
+
+.contact-links { display:flex; flex-direction:column; gap:8px; }
+.clink {
+  display:flex; align-items:center; gap:12px;
+  padding:12px 16px;
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:var(--radius); text-decoration:none;
+  transition:all 0.2s;
+}
+.clink:hover { border-color:var(--green); }
+.clink-icon {
+  width:32px; height:32px;
+  background:var(--green-dim); border:1px solid var(--border2);
+  border-radius:var(--radius); display:flex; align-items:center; justify-content:center;
+  font-size:13px; flex-shrink:0;
+}
+.clink-info { flex:1; }
+.clink-label { font-size:10px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+.clink-val { font-size:12px; color:var(--text); margin-top:1px; }
+.clink-arrow { font-size:14px; color:var(--muted); }
+.clink:hover .clink-arrow { color:var(--green); }
+
+.form-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+.form-header {
+  padding:16px 24px;
+  border-bottom:1px solid var(--border);
+  background:var(--bg3);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.form-title { font-size:11px; color:var(--text); letter-spacing:0.06em; }
+.form-dots { display:flex; gap:6px; }
+.form-dots span { width:8px; height:8px; border-radius:50%; }
+
+.form-body { padding:28px 24px; }
+
+.field { margin-bottom:20px; }
+.field-label {
+  display:block; font-size:10px; color:var(--muted);
+  letter-spacing:0.1em; text-transform:uppercase;
+  margin-bottom:8px;
+}
+.field-label .req { color:var(--green); }
+
+.field input, .field textarea, .field select {
+  width:100%; background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:11px 14px;
+  font-family:var(--mono); font-size:12px;
+  color:var(--text);
+  outline:none; transition:border-color 0.2s;
+  appearance:none;
+}
+.field input::placeholder,
+.field textarea::placeholder { color:var(--muted2); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus { border-color:var(--green); }
+
+.field textarea { resize:vertical; min-height:110px; line-height:1.6; }
+
+.field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.field select option { background:var(--bg3); color:var(--text); }
+
+.char-count {
+  text-align:right; font-size:10px;
+  color:var(--muted); margin-top:4px;
+}
+
+.submit-btn {
+  width:100%; padding:13px;
+  background:var(--green); color:#000;
+  border:1px solid var(--green);
+  border-radius:var(--radius);
+  font-family:var(--mono); font-size:13px; font-weight:700;
+  letter-spacing:0.06em; cursor:pointer;
+  transition:all 0.2s; display:flex;
+  align-items:center; justify-content:center; gap:8px;
+}
+.submit-btn:hover {
+  background:transparent; color:var(--green);
+  box-shadow:0 0 24px var(--green-glow);
+}
+.submit-btn:disabled {
+  opacity:0.5; cursor:not-allowed;
+}
+
+.form-note {
+  text-align:center; font-size:10px; color:var(--muted2);
+  margin-top:12px; line-height:1.6; font-family:var(--sans);
+}
+
+.status-msg {
+  display:none; padding:14px 16px;
+  border-radius:var(--radius); margin-top:16px;
+  font-size:12px; line-height:1.6; font-family:var(--sans);
+}
+.status-msg.success {
+  display:block;
+  background:rgba(0,255,136,0.06);
+  border:1px solid var(--border2);
+  color:var(--green);
+}
+.status-msg.error {
+  display:block;
+  background:rgba(255,71,87,0.06);
+  border:1px solid rgba(255,71,87,0.25);
+  color:var(--red);
+}
+.status-msg.loading {
+  display:flex; align-items:center; gap:10px;
+  background:var(--bg3); border:1px solid var(--border);
+  color:var(--muted);
+}
+
+.spinner {
+  width:14px; height:14px;
+  border:2px solid var(--border2);
+  border-top-color:var(--green);
+  border-radius:50%;
+  animation:spin 0.7s linear infinite;
+  flex-shrink:0;
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+
+.page-nav {
+  display:flex; justify-content:flex-start; gap:12px;
+  padding:40px 0; border-top:1px solid var(--border); margin-top:8px;
+}
+
+@media(max-width:900px){
+  .contact-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html">experience</a>
+      <a href="projects.html">projects</a>
+      <a href="skills.html">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html">volunteering</a>
+      <a href="contact.html" class="active">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot"></div>OPEN TO ROLES</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+<div class="container">
+<section class="contact-page">
+
+  <div class="sec-header fade-up">
+    <span class="sec-tag">contact</span>
+    <h2 class="sec-title">Get in touch</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="contact-grid">
+
+    
+    <div>
+      <div class="contact-intro fade-up d1">
+        <h2 class="contact-heading">Let's build<br>something <span class="g">fast.</span></h2>
+        <p class="contact-subtext">
+          I'm available for <strong>backend engineering</strong>, <strong>distributed systems</strong>, and
+          <strong>data pipeline roles</strong>. Open to internships and full-time opportunities.
+          Currently completing B.Tech at SRM (May 2027).
+        </p>
+      </div>
+
+      <div class="availability fade-up d2">
+        <div class="avail-header">
+          <span>availability_status.json</span>
+          <span id="clock2">--:--:--</span>
+        </div>
+        <div class="avail-row">
+          <span class="avail-name">backend_engineering</span>
+          <div class="avail-status"><div class="avail-dot"></div><span class="avail-label">AVAILABLE</span></div>
+        </div>
+        <div class="avail-row">
+          <span class="avail-name">distributed_systems</span>
+          <div class="avail-status"><div class="avail-dot"></div><span class="avail-label">AVAILABLE</span></div>
+        </div>
+        <div class="avail-row">
+          <span class="avail-name">ml_pipelines</span>
+          <div class="avail-status"><div class="avail-dot"></div><span class="avail-label">AVAILABLE</span></div>
+        </div>
+        <div class="avail-row">
+          <span class="avail-name">full_stack_dev</span>
+          <div class="avail-status"><div class="avail-dot"></div><span class="avail-label">AVAILABLE</span></div>
+        </div>
+        <div class="avail-row">
+          <span class="avail-name">yrrna_iitk_internship_2025</span>
+          <div class="avail-status"><div class="avail-dot filled"></div><span class="avail-label filled">FILLED</span></div>
+        </div>
+      </div>
+
+      <div class="contact-links fade-up d3">
+        <a href="mailto:karanpandey569@gmail.com" class="clink">
+          <div class="clink-icon">@</div>
+          <div class="clink-info">
+            <div class="clink-label">Email</div>
+            <div class="clink-val">karanpandey569@gmail.com</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="tel:+919971276894" class="clink">
+          <div class="clink-icon">#</div>
+          <div class="clink-info">
+            <div class="clink-label">Phone</div>
+            <div class="clink-val">+91 9971276894</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/karanpandey" target="_blank" class="clink">
+          <div class="clink-icon">in</div>
+          <div class="clink-info">
+            <div class="clink-label">LinkedIn</div>
+            <div class="clink-val">linkedin.com/in/karanpandey</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://github.com/karanpandey" target="_blank" class="clink">
+          <div class="clink-icon">gh</div>
+          <div class="clink-info">
+            <div class="clink-label">GitHub</div>
+            <div class="clink-val">github.com/karanpandey</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="form-card fade-up d2">
+      <div class="form-header">
+        <span class="form-title">send_message.py</span>
+        <div class="form-dots">
+          <span style="background:#ff5f56"></span>
+          <span style="background:#ffbd2e"></span>
+          <span style="background:#27c93f"></span>
+        </div>
+      </div>
+      <div class="form-body">
+        <form id="contactForm">
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label class="field-label" for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="subject">Opportunity type <span class="req">*</span></label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select type...</option>
+              <option value="Full-time Role">Full-time Role</option>
+              <option value="Internship">Internship</option>
+              <option value="Freelance / Contract">Freelance / Contract</option>
+              <option value="Collaboration">Open Source / Collaboration</option>
+              <option value="Just saying hi">Just saying hi </option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="Where are you from?">
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="message">Message <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Tell me what you're working on, what role you have in mind, or just say hello..." required maxlength="1000"></textarea>
+            <div class="char-count"><span id="charCount">0</span> / 1000</div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span id="btnText">→ send_message()</span>
+          </button>
+
+          <div id="statusMsg" class="status-msg"></div>
+
+          <p class="form-note">
+            You'll receive a confirmation email immediately.<br>
+            I typically respond within 24 hours.
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-nav">
+  <a href="skills.html" class="btn btn-ghost">← Skills</a>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Karan Pandey</span>
+  <span id="clock">--:--:-- UTC</span>
+  <span>Delhi NCR, India</span>
+</footer>
+</div>
+</div>
+
+<script>
+function tick(){
+  const n=new Date();
+  const t=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';
+  document.getElementById('clock').textContent=t;
+  document.getElementById('clock2').textContent=t;
+}
+tick(); setInterval(tick,1000);
+
+document.getElementById('message').addEventListener('input',function(){
+  document.getElementById('charCount').textContent=this.value.length;
+});
+
+document.getElementById('contactForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const status = document.getElementById('statusMsg');
+
+  const data = {
+    name:    document.getElementById('name').value.trim(),
+    email:   document.getElementById('email').value.trim(),
+    subject: document.getElementById('subject').value,
+    company: document.getElementById('company').value.trim(),
+    message: document.getElementById('message').value.trim(),
+  };
+
+  btn.disabled = true;
+  status.className = 'status-msg loading';
+  status.innerHTML = '<div class="spinner"></div><span>Sending message...</span>';
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if(res.ok && result.success){
+      status.className = 'status-msg success';
+      status.innerHTML = `✓ Message sent! A confirmation has been sent to <strong>${data.email}</strong>. I'll get back to you within 24 hours.`;
+      this.reset();
+      document.getElementById('charCount').textContent = '0';
+      btnText.textContent = '✓ sent!';
+    } else {
+      throw new Error(result.error || 'Something went wrong');
+    }
+  } catch(err) {
+    status.className = 'status-msg error';
+    status.innerHTML = `✗ Failed to send: ${err.message}. Try emailing directly at <a href="mailto:karanpandey569@gmail.com" style="color:var(--red)">karanpandey569@gmail.com</a>`;
+    btn.disabled = false;
+    btnText.textContent = '→ send_message()';
+  }
+});
+</script>
+</body>
+</html>

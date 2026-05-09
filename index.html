@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Karan Pandey — Systems Engineer</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.hero {
+  min-height: calc(100vh - 56px);
+  display: flex; align-items: center;
+  padding: 60px 0 80px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px; align-items: center;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; color: var(--green);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-eyebrow::before {
+  content:''; width:28px; height:1px; background:var(--green);
+}
+.hero-name {
+  font-size: clamp(44px,6vw,72px);
+  font-weight: 700; line-height: 1.0;
+  color: #fff; letter-spacing: -0.025em;
+  margin-bottom: 14px;
+}
+.hero-name .g { color: var(--green); }
+.hero-sub {
+  font-family: var(--sans);
+  font-size: 17px; color: var(--muted);
+  font-weight: 300; line-height: 1.7;
+  margin-bottom: 10px;
+  max-width: 460px;
+}
+.hero-sub strong { color: var(--text); font-weight: 400; }
+.hero-meta {
+  font-size: 11px; color: var(--muted2);
+  letter-spacing: 0.06em; margin-bottom: 32px;
+}
+.hero-meta span { color: var(--muted); }
+.hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom: 48px; }
+
+.scroll-hint {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 10px; color: var(--muted2); letter-spacing: 0.1em;
+}
+.scroll-arrow {
+  width: 28px; height: 28px;
+  border: 1px solid var(--border2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)}
+}
+
+.panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.panel-title { font-size: 10px; color: var(--muted); letter-spacing:0.12em; text-transform:uppercase; }
+.panel-dots { display:flex; gap:6px; }
+.panel-dots span {
+  width:8px; height:8px; border-radius:50%;
+}
+.pd1{background:#ff5f56} .pd2{background:#ffbd2e} .pd3{background:#27c93f}
+
+.metric-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.metric-row:last-child { border-bottom: none; }
+.m-left { display:flex; flex-direction:column; gap:5px; }
+.m-label { font-size: 10px; color: var(--muted); letter-spacing:0.06em; }
+.m-bar { width: 120px; height:2px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; }
+.m-fill { height:100%; border-radius:2px; background:var(--green); animation:fillBar 1.8s ease forwards; }
+@keyframes fillBar { from{width:0} }
+.m-val { font-size: 14px; font-weight:700; }
+.m-val.g{color:var(--green)} .m-val.a{color:var(--amber)} .m-val.b{color:var(--blue)} .m-val.w{color:#fff}
+
+.quicknav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 60px;
+}
+.qcard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  text-decoration: none;
+  display: flex; flex-direction:column; gap:8px;
+  transition: all 0.2s;
+  position:relative; overflow:hidden;
+}
+.qcard::before {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:2px; background:var(--green);
+  transform:scaleX(0); transition:transform 0.3s;
+  transform-origin:left;
+}
+.qcard:hover::before { transform:scaleX(1); }
+.qcard:hover { border-color:var(--border2); background:var(--bg3); }
+.qcard-num { font-size:10px; color:var(--muted); letter-spacing:0.1em; }
+.qcard-label { font-size:14px; font-weight:600; color:#fff; }
+.qcard-sub { font-size:11px; color:var(--muted); font-family:var(--sans); }
+.qcard-arrow { font-size:14px; color:var(--green); margin-top:auto; }
+
+@media(max-width:900px){
+  .hero-grid { grid-template-columns:1fr; }
+  .panel { display:none; }
+  .quicknav { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html">experience</a>
+      <a href="projects.html">projects</a>
+      <a href="skills.html">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html">volunteering</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot"></div>OPEN TO ROLES</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow fade-up">Backend · Distributed Systems · ML</div>
+          <h1 class="hero-name fade-up d1">
+            Karan<br><span class="g">Pandey<span class="cursor"></span></span>
+          </h1>
+          <p class="hero-sub fade-up d2">
+            Building <strong>high-throughput systems</strong> that run in production —<br>
+            from distributed cache layers to real-time fraud pipelines.
+          </p>
+          <div class="hero-meta fade-up d3">
+            <span>SRM INSTITUTE OF SCIENCE AND TECHNOLOGY</span> &nbsp;·&nbsp;
+            <span>B.TECH CSE + DATA SCIENCE</span> &nbsp;·&nbsp;
+            <span>CGPA 8.21</span> &nbsp;·&nbsp;
+            <span>CLASS OF 2027</span>
+          </div>
+          <div class="hero-cta fade-up d4">
+            <a href="contact.html" class="btn btn-primary">→ hire_me()</a>
+            <a href="about.html" class="btn btn-ghost">explore →</a>
+            <a href="https://github.com" target="_blank" class="btn btn-ghost">github</a>
+          </div>
+          <div class="scroll-hint fade-up d5">
+            <div class="scroll-arrow">↓</div>
+            <span>SCROLL TO EXPLORE</span>
+          </div>
+        </div>
+
+        <div class="panel fade-up d3">
+          <div class="panel-header">
+            <span class="panel-title">sys_metrics.live</span>
+            <div class="panel-dots"><span class="pd1"></span><span class="pd2"></span><span class="pd3"></span></div>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">CACHE_LATENCY_REDUCTION</span>
+              <div class="m-bar"><div class="m-fill" style="width:22%"></div></div>
+            </div>
+            <span class="m-val g">−22%</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">QUERY_SPEED_BOOST</span>
+              <div class="m-bar"><div class="m-fill" style="width:25%"></div></div>
+            </div>
+            <span class="m-val g">+25%</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">DATA_RETRIEVAL_SPEEDUP</span>
+              <div class="m-bar"><div class="m-fill" style="width:66%"></div></div>
+            </div>
+            <span class="m-val g">3×</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">FRAUD_DETECT_PRECISION</span>
+              <div class="m-bar"><div class="m-fill" style="width:91%"></div></div>
+            </div>
+            <span class="m-val a">0.91</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">DISTRIBUTED_NODES_MANAGED</span>
+              <div class="m-bar"><div class="m-fill" style="width:100%"></div></div>
+            </div>
+            <span class="m-val b">100+</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">API_RESPONSE_LATENCY_P99</span>
+              <div class="m-bar"><div class="m-fill" style="width:10%"></div></div>
+            </div>
+            <span class="m-val w">&lt;100ms</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">FRAUD_PIPELINE_INFERENCE</span>
+              <div class="m-bar"><div class="m-fill" style="width:5%"></div></div>
+            </div>
+            <span class="m-val w">&lt;50ms</span>
+          </div>
+          <div class="metric-row">
+            <div class="m-left">
+              <span class="m-label">TRANSACTIONS_PROCESSED</span>
+              <div class="m-bar"><div class="m-fill" style="width:88%"></div></div>
+            </div>
+            <span class="m-val b">284K+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick nav -->
+      <div class="quicknav fade-up d6">
+        <a href="about.html" class="qcard">
+          <span class="qcard-num">01</span>
+          <span class="qcard-label">About</span>
+          <span class="qcard-sub">Who I am & my story</span>
+          <span class="qcard-arrow">→</span>
+        </a>
+        <a href="experience.html" class="qcard">
+          <span class="qcard-num">02</span>
+          <span class="qcard-label">Experience</span>
+          <span class="qcard-sub">3 internships, real impact</span>
+          <span class="qcard-arrow">→</span>
+        </a>
+        <a href="projects.html" class="qcard">
+          <span class="qcard-num">03</span>
+          <span class="qcard-label">Projects</span>
+          <span class="qcard-sub">Shipped & in production</span>
+          <span class="qcard-arrow">→</span>
+        </a>
+        <a href="skills.html" class="qcard">
+          <span class="qcard-num">04</span>
+          <span class="qcard-label">Skills</span>
+          <span class="qcard-sub">Full stack capability</span>
+          <span class="qcard-arrow">→</span>
+        </a>
+      </div>
+
+      <footer class="footer">
+        <span>© 2026 Karan Pandey</span>
+        <span id="clock">--:--:-- UTC</span>
+        <span>Delhi NCR, India</span>
+      </footer>
+    </div>
+  </section>
+</div>
+
+<script>
+function tick(){
+  const n=new Date();
+  document.getElementById('clock').textContent=
+    String(n.getUTCHours()).padStart(2,'0')+':'+
+    String(n.getUTCMinutes()).padStart(2,'0')+':'+
+    String(n.getUTCSeconds()).padStart(2,'0')+' UTC';
+}
+tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>

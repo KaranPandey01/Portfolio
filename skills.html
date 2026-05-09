@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Skills — Karan Pandey</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.skills-page { padding:72px 0 40px; }
+
+.domains {
+  display:flex; gap:10px; flex-wrap:wrap; margin-bottom:48px;
+}
+.domain-pill {
+  padding:8px 18px;
+  border:1px solid var(--border2);
+  border-radius:20px;
+  font-size:12px; color:var(--green);
+  letter-spacing:0.06em;
+  background:var(--green-dim);
+}
+
+.skills-main {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:40px;
+}
+
+.skill-group {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:22px 24px;
+  transition:border-color 0.2s;
+}
+.skill-group:hover { border-color:var(--border2); }
+
+.sg-title {
+  font-size:10px; color:var(--green);
+  letter-spacing:0.16em; text-transform:uppercase;
+  margin-bottom:18px;
+  display:flex; align-items:center; gap:8px;
+}
+.sg-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.skill-item {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:12px; gap:12px;
+}
+.skill-item:last-child { margin-bottom:0; }
+.skill-name { font-size:12px; color:var(--text); flex-shrink:0; min-width:110px; }
+
+.skill-bar-wrap {
+  flex:1; height:3px;
+  background:rgba(255,255,255,0.05);
+  border-radius:2px; overflow:hidden;
+}
+.skill-bar {
+  height:100%; border-radius:2px;
+  background:var(--green);
+  transition:width 1.2s ease;
+  width:0;
+}
+.skill-bar.animated { }
+
+.skill-pct { font-size:10px; color:var(--muted); min-width:28px; text-align:right; }
+
+.legend {
+  display:flex; gap:20px; flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.legend-item { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); }
+.legend-dot { width:8px; height:8px; border-radius:50%; }
+.ld-expert { background:var(--green); box-shadow:0 0 6px var(--green-glow); }
+.ld-strong { background:var(--blue); }
+.ld-familiar { background:var(--muted); }
+
+.tools-section { margin-bottom:40px; }
+.tools-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:10px;
+}
+.tool-chip {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  display:flex; flex-direction:column; gap:4px;
+  transition:border-color 0.2s;
+  cursor:default;
+}
+.tool-chip:hover { border-color:var(--border2); }
+.tool-chip-name { font-size:12px; color:var(--text); }
+.tool-chip-cat  { font-size:9px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+
+.domain-cards {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.domain-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px 24px;
+  display:flex; gap:16px; align-items:flex-start;
+  transition:border-color 0.2s;
+}
+.domain-card:hover { border-color:var(--border2); }
+.dc-icon {
+  width:40px; height:40px; flex-shrink:0;
+  background:var(--green-dim);
+  border:1px solid var(--border2);
+  border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.dc-title { font-size:13px; font-weight:600; color:#fff; margin-bottom:5px; }
+.dc-desc  { font-size:11px; color:var(--muted); line-height:1.55; font-family:var(--sans); }
+
+.page-nav {
+  display:flex; justify-content:space-between; gap:12px;
+  padding:40px 0; border-top:1px solid var(--border); margin-top:8px;
+}
+
+@media(max-width:768px){
+  .skills-main { grid-template-columns:1fr; }
+  .domain-cards { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html">experience</a>
+      <a href="projects.html">projects</a>
+      <a href="skills.html" class="active">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html">volunteering</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot blue"></div>FULL STACK</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+<div class="container">
+<section class="skills-page">
+
+  <div class="sec-header fade-up">
+    <span class="sec-tag">stack</span>
+    <h2 class="sec-title">Technical Skills</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="domains fade-up d1">
+    <span class="domain-pill">Backend Development</span>
+    <span class="domain-pill">Distributed Systems</span>
+    <span class="domain-pill">Microservices</span>
+    <span class="domain-pill">Data Pipelines</span>
+    <span class="domain-pill">ML Workflows</span>
+    <span class="domain-pill">Android Development</span>
+  </div>
+
+  <div class="legend fade-up d1">
+    <div class="legend-item"><div class="legend-dot ld-expert"></div>Expert / Primary</div>
+    <div class="legend-item"><div class="legend-dot ld-strong"></div>Strong / Production</div>
+    <div class="legend-item"><div class="legend-dot ld-familiar"></div>Familiar / Learning</div>
+  </div>
+
+  <div class="skills-main">
+
+    <div class="skill-group fade-up d1">
+      <div class="sg-title">Languages</div>
+      <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="95"></div></div><span class="skill-pct">95%</span></div>
+      <div class="skill-item"><span class="skill-name">Dart</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="92"></div></div><span class="skill-pct">92%</span></div>
+      <div class="skill-item"><span class="skill-name">TypeScript</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="75" style="background:var(--blue)"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="78" style="background:var(--blue)"></div></div><span class="skill-pct">78%</span></div>
+    </div>
+
+    <div class="skill-group fade-up d2">
+      <div class="sg-title">Backend & Data</div>
+      <div class="skill-item"><span class="skill-name">FastAPI</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="93"></div></div><span class="skill-pct">93%</span></div>
+      <div class="skill-item"><span class="skill-name">PostgreSQL</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+      <div class="skill-item"><span class="skill-name">SQLAlchemy</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="86"></div></div><span class="skill-pct">86%</span></div>
+      <div class="skill-item"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+      <div class="skill-item"><span class="skill-name">Scikit-learn</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-item"><span class="skill-name">Django</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="70" style="background:var(--blue)"></div></div><span class="skill-pct">70%</span></div>
+    </div>
+
+    <div class="skill-group fade-up d3">
+      <div class="sg-title">Frontend & Infra</div>
+      <div class="skill-item"><span class="skill-name">Docker</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+      <div class="skill-item"><span class="skill-name">Git / Linux</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="92"></div></div><span class="skill-pct">92%</span></div>
+      <div class="skill-item"><span class="skill-name">Next.js</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="78" style="background:var(--blue)"></div></div><span class="skill-pct">78%</span></div>
+      <div class="skill-item"><span class="skill-name">React</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="75" style="background:var(--blue)"></div></div><span class="skill-pct">75%</span></div>
+      <div class="skill-item"><span class="skill-name">GitHub Actions</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="72" style="background:var(--blue)"></div></div><span class="skill-pct">72%</span></div>
+      <div class="skill-item"><span class="skill-name">AWS / GCP</span><div class="skill-bar-wrap"><div class="skill-bar" data-w="50" style="background:var(--muted)"></div></div><span class="skill-pct">50%</span></div>
+    </div>
+
+  </div>
+
+  <!-- Databases row -->
+  <div class="sec-header fade-up" style="margin-top:8px">
+    <span class="sec-tag">databases</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tools-grid fade-up d1" style="margin-bottom:40px">
+    <div class="tool-chip"><span class="tool-chip-name">PostgreSQL</span><span class="tool-chip-cat">Relational</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">MySQL</span><span class="tool-chip-cat">Relational</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">SQLite</span><span class="tool-chip-cat">Embedded</span></div>
+  </div>
+
+  <!-- Tools row -->
+  <div class="sec-header fade-up">
+    <span class="sec-tag">tools & platforms</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tools-grid fade-up d1" style="margin-bottom:40px">
+    <div class="tool-chip"><span class="tool-chip-name">Git</span><span class="tool-chip-cat">Version control</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">Docker</span><span class="tool-chip-cat">Containers</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">Linux</span><span class="tool-chip-cat">OS</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">GitHub Actions</span><span class="tool-chip-cat">CI/CD</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">REST APIs</span><span class="tool-chip-cat">Architecture</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">Android Studio</span><span class="tool-chip-cat">Mobile IDE</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">AWS Fundamentals</span><span class="tool-chip-cat">Cloud</span></div>
+    <div class="tool-chip"><span class="tool-chip-name">GCP Fundamentals</span><span class="tool-chip-cat">Cloud</span></div>
+  </div>
+
+  <!-- Domain expertise -->
+  <div class="sec-header fade-up">
+    <span class="sec-tag">domain expertise</span>
+    <div class="sec-line"></div>
+  </div>
+  <div class="domain-cards">
+    <div class="domain-card fade-up d1">
+      <div class="dc-icon">⚙️</div>
+      <div>
+        <div class="dc-title">Distributed Systems</div>
+        <div class="dc-desc">Cache consistency, fault tolerance, concurrent access patterns. Production experience managing 100+ nodes at IIT Kanpur.</div>
+      </div>
+    </div>
+    <div class="domain-card fade-up d2">
+      <div class="dc-icon">🔧</div>
+      <div>
+        <div class="dc-title">Backend Engineering</div>
+        <div class="dc-desc">FastAPI microservices, ORM design, query optimization, REST API architecture. Sub-100ms production latency.</div>
+      </div>
+    </div>
+    <div class="domain-card fade-up d3">
+      <div class="dc-icon">🤖</div>
+      <div>
+        <div class="dc-title">ML Pipelines</div>
+        <div class="dc-desc">Anomaly detection, class imbalance handling (SMOTE), feature engineering on time-series. Containerized inference at &lt;50ms.</div>
+      </div>
+    </div>
+    <div class="domain-card fade-up d4">
+      <div class="dc-icon">📱</div>
+      <div>
+        <div class="dc-title">Android Development</div>
+        <div class="dc-desc">Google-certified Android Developer via EduSkills (AICTE). Hands-on experience with Android SDK, architecture components, and Android Studio.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- LeetCode Stats -->
+  <div class="sec-header fade-up" style="margin-top:8px">
+    <span class="sec-tag">competitive coding</span>
+    <h2 class="sec-title">LeetCode</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="leetcode-block fade-up d1">
+    <div class="lc-card">
+      <div class="lc-header">
+        <div class="lc-logo">
+          <svg width="20" height="20" viewBox="0 0 50 50" fill="none">
+            <path d="M36.9 36.9L25 48.8 13.1 36.9l3.5-3.5 8.4 8.4 8.4-8.4 3.5 3.5z" fill="#FFA116"/>
+            <path d="M28.4 35H10.7c-4.1 0-7.7-3.4-7.7-7.7V22c0-4.1 3.4-7.7 7.7-7.7h2.7v5H10.7c-1.5 0-2.7 1.2-2.7 2.7v5.3c0 1.5 1.2 2.7 2.7 2.7H28.4v5z" fill="#B3B3B3"/>
+            <path d="M39.3 35h-2.7v-5h2.7c1.5 0 2.7-1.2 2.7-2.7V22c0-1.5-1.2-2.7-2.7-2.7H21.6v-5H39.3c4.1 0 7.7 3.4 7.7 7.7v5.3c0 4.1-3.4 7.7-7.7 7.7z" fill="#FFA116"/>
+          </svg>
+          <span>LeetCode</span>
+        </div>
+        <a href="https://leetcode.com/u/karanpandey569/" target="_blank" class="lc-profile-link">@karanpandey569 ↗</a>
+      </div>
+      <div class="lc-body">
+        <div class="lc-diff-grid">
+          <div class="lc-diff easy">
+            <div class="lc-diff-label">Easy</div>
+            <div class="lc-diff-bar-wrap"><div class="lc-diff-bar easy-bar"></div></div>
+          </div>
+          <div class="lc-diff medium">
+            <div class="lc-diff-label">Medium</div>
+            <div class="lc-diff-bar-wrap"><div class="lc-diff-bar medium-bar"></div></div>
+          </div>
+          <div class="lc-diff hard">
+            <div class="lc-diff-label">Hard</div>
+            <div class="lc-diff-bar-wrap"><div class="lc-diff-bar hard-bar"></div></div>
+          </div>
+        </div>
+        <div class="lc-note">Live stats auto-load from LeetCode. Visit profile for full details.</div>
+      </div>
+    </div>
+    <div class="lc-embed">
+      <img src="https://leetcard.jacoblin.cool/karanpandey569?theme=dark&font=JetBrains+Mono&ext=heatmap&border=0&radius=8" 
+           alt="LeetCode Stats for karanpandey569"
+           style="width:100%;border-radius:8px;border:1px solid var(--border);"
+           onerror="this.style.display='none';document.getElementById('lc-fallback').style.display='flex'">
+      <div id="lc-fallback" style="display:none;padding:24px;background:var(--bg3);border-radius:8px;border:1px solid var(--border);align-items:center;justify-content:center;flex-direction:column;gap:10px;text-align:center;">
+        <div style="font-size:13px;color:var(--muted);">LeetCode stats widget</div>
+        <a href="https://leetcode.com/u/karanpandey569/" target="_blank" class="btn btn-ghost" style="font-size:11px;">View on LeetCode ↗</a>
+      </div>
+    </div>
+  </div>
+
+<style>
+.leetcode-block { display:grid; grid-template-columns:280px 1fr; gap:20px; align-items:start; margin-bottom:40px; }
+.lc-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
+.lc-header { padding:14px 18px; border-bottom:1px solid var(--border); background:var(--bg3); display:flex; justify-content:space-between; align-items:center; }
+.lc-logo { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:#FFA116; }
+.lc-profile-link { font-size:11px; color:var(--blue); text-decoration:none; border:1px solid rgba(0,180,255,0.2); padding:4px 10px; border-radius:3px; transition:all 0.15s; }
+.lc-profile-link:hover { background:rgba(0,180,255,0.08); }
+.lc-body { padding:18px; }
+.lc-diff-grid { display:flex; flex-direction:column; gap:10px; }
+.lc-diff-label { font-size:11px; letter-spacing:0.06em; margin-bottom:4px; }
+.lc-diff.easy .lc-diff-label { color:#00af9b; }
+.lc-diff.medium .lc-diff-label { color:#FFB800; }
+.lc-diff.hard .lc-diff-label { color:#ff375f; }
+.lc-diff-bar-wrap { height:4px; background:rgba(255,255,255,0.05); border-radius:2px; overflow:hidden; }
+.lc-diff-bar { height:100%; border-radius:2px; width:0; transition:width 1.4s ease; }
+.easy-bar { background:#00af9b; }
+.medium-bar { background:#FFB800; }
+.hard-bar { background:#ff375f; }
+.lc-note { font-size:10px; color:var(--muted2); margin-top:14px; font-family:var(--sans); line-height:1.5; }
+@media(max-width:768px){ .leetcode-block { grid-template-columns:1fr; } }
+</style>
+<script>
+// Animate LC bars on scroll
+const lcObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      document.querySelector('.easy-bar').style.width='65%';
+      document.querySelector('.medium-bar').style.width='45%';
+      document.querySelector('.hard-bar').style.width='20%';
+    }
+  });
+}, {threshold:0.3});
+const lc = document.querySelector('.leetcode-block');
+if(lc) lcObserver.observe(lc);
+</script>
+
+
+</section>
+
+<div class="page-nav">
+  <a href="projects.html" class="btn btn-ghost">← Projects</a>
+  <a href="contact.html" class="btn btn-primary">Contact →</a>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Karan Pandey</span>
+  <span id="clock">--:--:-- UTC</span>
+  <span>Delhi NCR, India</span>
+</footer>
+</div>
+</div>
+<script>
+function tick(){const n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';}
+tick();setInterval(tick,1000);
+
+// Animate skill bars on scroll
+const bars = document.querySelectorAll('.skill-bar');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const w = e.target.getAttribute('data-w');
+      if(w) e.target.style.width = w + '%';
+    }
+  });
+}, {threshold:0.3});
+bars.forEach(b => io.observe(b));
+</script>
+</body>
+</html>

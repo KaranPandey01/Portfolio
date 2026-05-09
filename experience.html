@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Experience — Karan Pandey</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.exp-page { padding:72px 0 40px; }
+.timeline { position:relative; padding-left:32px; display:flex; flex-direction:column; gap:0; }
+.timeline::before { content:''; position:absolute; left:7px; top:12px; bottom:12px; width:1px; background:var(--border2); }
+.tl-item { position:relative; padding-bottom:48px; }
+.tl-item:last-child { padding-bottom:0; }
+.tl-dot { position:absolute; left:-28px; top:14px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:2px solid var(--green); box-shadow:0 0 10px var(--green-glow); z-index:1; }
+.tl-dot.amber { border-color:var(--amber); box-shadow:0 0 10px rgba(255,183,0,0.3); }
+.tl-dot.blue  { border-color:var(--blue);  box-shadow:0 0 10px rgba(0,180,255,0.3); }
+.exp-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:border-color 0.2s; }
+.exp-card:hover { border-color:var(--border2); }
+.exp-card-header { padding:24px 28px 20px; border-bottom:1px solid var(--border); display:grid; grid-template-columns:1fr auto; gap:16px; align-items:start; }
+.exp-company-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+.exp-company { font-size:18px; font-weight:700; color:#fff; }
+.exp-period-badge { font-size:10px; color:var(--muted); background:var(--bg3); border:1px solid var(--border); padding:3px 10px; border-radius:2px; letter-spacing:0.06em; white-space:nowrap; }
+.exp-role { font-size:14px; color:var(--green); letter-spacing:0.04em; margin-bottom:8px; }
+.exp-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.exp-right { text-align:right; }
+.exp-loc { font-size:11px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px; }
+.exp-body { padding:24px 28px; }
+.exp-section-label { font-size:10px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; margin-top:20px; }
+.exp-section-label:first-child { margin-top:0; }
+.exp-bullets { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.exp-bullets li { font-size:13px; color:var(--muted); padding-left:18px; position:relative; line-height:1.65; font-family:var(--sans); }
+.exp-bullets li::before { content:'▸'; position:absolute; left:0; color:var(--green); font-size:10px; top:3px; }
+.exp-bullets li strong { color:var(--text); font-weight:500; }
+.exp-bullets li .num { color:var(--green); font-family:var(--mono); font-size:12px; }
+.impact-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid var(--border); }
+.impact-cell { text-align:center; padding:14px 10px; background:var(--bg3); border-radius:var(--radius); }
+.impact-val { font-size:22px; font-weight:700; color:var(--green); line-height:1; margin-bottom:4px; }
+.impact-val.a { color:var(--amber); }
+.impact-val.b { color:var(--blue); }
+.impact-desc { font-size:10px; color:var(--muted); letter-spacing:0.04em; line-height:1.4; }
+.cert-banner { background:linear-gradient(135deg,rgba(0,180,255,0.05) 0%,rgba(0,255,136,0.04) 100%); border:1px solid rgba(0,180,255,0.2); border-radius:var(--radius); padding:14px 18px; display:flex; align-items:center; gap:14px; margin-top:16px; flex-wrap:wrap; }
+.cert-icon { width:40px; height:40px; background:rgba(0,180,255,0.1); border:1px solid rgba(0,180,255,0.25); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.cert-text { font-size:12px; color:var(--muted); font-family:var(--sans); line-height:1.55; flex:1; }
+.cert-text strong { color:var(--blue); font-weight:500; }
+.cert-link { display:inline-flex; align-items:center; gap:6px; font-size:11px; color:var(--blue); border:1px solid rgba(0,180,255,0.3); padding:6px 14px; border-radius:3px; text-decoration:none; transition:all 0.15s; white-space:nowrap; letter-spacing:0.04em; flex-shrink:0; }
+.cert-link:hover { background:rgba(0,180,255,0.08); border-color:var(--blue); }
+.page-nav { display:flex; justify-content:space-between; gap:12px; padding:40px 0; border-top:1px solid var(--border); margin-top:8px; }
+@media(max-width:600px){ .timeline { padding-left:24px; } .exp-card-header { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html" class="active">experience</a>
+      <a href="projects.html">projects</a>
+      <a href="skills.html">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html">volunteering</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot amber"></div>3 INTERNSHIPS</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+<div class="container">
+<section class="exp-page">
+
+  <div class="sec-header fade-up">
+    <span class="sec-tag">career</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item fade-up d1">
+      <div class="tl-dot"></div>
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company-row">
+              <span class="exp-company">YRRNA System Labs</span>
+              <span class="badge badge-green">LATEST</span>
+            </div>
+            <div class="exp-role">Onsite R&D Intern</div>
+            <div class="exp-tags">
+              <span class="badge badge-blue">IIT KANPUR</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">Distributed Systems</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">P2P</span>
+              <span class="tech-tag">Index Manager</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-loc">Kanpur, India</div>
+            <div class="exp-period-badge">May 2025 – Jul 2025</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-section-label">What I did</div>
+          <ul class="exp-bullets">
+            <li>Worked on the <strong>Index Manager module</strong> — optimized platform indexing and cache validation workflows using Dart, achieving a <span class="num">22%</span> reduction in read latency under concurrent access</li>
+            <li>Implemented <strong>peer-to-peer (P2P) communication</strong> protocols for distributed data exchange between nodes, improving system coordination and reducing relay overhead</li>
+            <li>Designed <strong>consistency-preserving cache republishing mechanisms</strong> across <span class="num">100+</span> distributed storage nodes, improving system fault tolerance in a live production environment</li>
+            <li>Authored <span class="num">25+</span> deterministic unit tests covering crash recovery, data corruption handling, and edge-case validation on SQLite-backed storage, significantly strengthening QA coverage</li>
+            <li>Collaborated directly with engineers and researchers in a fast-paced R&D environment — benchmarked performance, presented findings, and delivered production-ready code on schedule</li>
+          </ul>
+          <div class="cert-banner">
+            <div class="cert-icon"></div>
+            <div class="cert-text">
+              <strong>Internship Certificate — YRRNA System Labs, IIT Kanpur</strong><br>
+              R&D Internship · Onsite · May–Jul 2025
+            </div>
+            <a href="https://drive.google.com/file/d/1WMbf9ok5Uff-5VU8AxNT-tM7Vz4AALc0/view?usp=sharing" target="_blank" class="cert-link">View Certificate ↗</a>
+          </div>
+          <div class="impact-row">
+            <div class="impact-cell"><div class="impact-val">22%</div><div class="impact-desc">Read latency<br>reduction</div></div>
+            <div class="impact-cell"><div class="impact-val b">100+</div><div class="impact-desc">Distributed nodes<br>managed</div></div>
+            <div class="impact-cell"><div class="impact-val">25+</div><div class="impact-desc">Unit tests<br>authored</div></div>
+            <div class="impact-cell"><div class="impact-val b">P2P</div><div class="impact-desc">Comms<br>implemented</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up d2">
+      <div class="tl-dot amber"></div>
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company-row">
+              <span class="exp-company">TradeTron</span>
+            </div>
+            <div class="exp-role">Data Migration Intern</div>
+            <div class="exp-tags">
+              <span class="badge badge-amber">FINTECH</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-loc">India (Remote)</div>
+            <div class="exp-period-badge">Jun 2024 – Jul 2024</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-section-label">What I did</div>
+          <ul class="exp-bullets">
+            <li>Integrated and validated <span class="num">25+</span> statistical indicators across financial market datasets using Python and Pandas, ensuring correctness across multi-source data pipelines</li>
+            <li>Refactored SQL migration pipelines by eliminating redundant queries and restructuring procedures — <strong>improving execution efficiency by 20%</strong></li>
+            <li>Engineered statistical features from OHLC time-series data through vectorization, boosting computation speed by <span class="num">22%</span> while maintaining clean, reusable code structure</li>
+          </ul>
+          <div class="cert-banner">
+            <div class="cert-icon">📈</div>
+            <div class="cert-text">
+              <strong>Internship Certificate — TradeTron</strong><br>
+              Data Migration Intern · Jun–Jul 2024
+            </div>
+            <a href="https://drive.google.com/file/d/1cYsJoFvQtzd-d-eqnCB-S6ALfWySSOmH/view?usp=sharing" target="_blank" class="cert-link">View Certificate ↗</a>
+          </div>
+          <div class="impact-row">
+            <div class="impact-cell"><div class="impact-val a">25+</div><div class="impact-desc">Statistical<br>indicators</div></div>
+            <div class="impact-cell"><div class="impact-val a">20%</div><div class="impact-desc">SQL pipeline<br>efficiency gain</div></div>
+            <div class="impact-cell"><div class="impact-val a">22%</div><div class="impact-desc">Compute speed<br>improvement</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: EduSkills / Google -->
+    <div class="tl-item fade-up d3">
+      <div class="tl-dot blue"></div>
+      <div class="exp-card">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-company-row">
+              <span class="exp-company">EduSkills × Google for Developers</span>
+            </div>
+            <div class="exp-role">Android Developer Virtual Intern</div>
+            <div class="exp-tags">
+              <span class="badge badge-blue">GOOGLE · AICTE · N-EAT</span>
+              <span class="tech-tag">Android</span>
+              <span class="tech-tag">Kotlin / Java</span>
+              <span class="tech-tag">Android Studio</span>
+            </div>
+          </div>
+          <div class="exp-right">
+            <div class="exp-loc">Virtual · India Edu Program</div>
+            <div class="exp-period-badge">Apr 2024 – Jun 2024</div>
+          </div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-section-label">What I did</div>
+          <ul class="exp-bullets">
+            <li>Completed a <span class="num">10-week</span> Google-supported Android Developer internship under the India Edu Program, developing innovative Android applications</li>
+            <li>Deepened understanding of <strong>Android architecture, SDK components, and industry-standard development practices</strong> with mentorship from Google's Developer Ecosystem team (MENA & India)</li>
+            <li>Certified by <strong>AICTE (All India Council for Technical Education)</strong>, supported by N-EAT and signed off by Google Developer Ecosystem Lead</li>
+          </ul>
+          <div class="cert-banner">
+            <div class="cert-icon"></div>
+            <div class="cert-text">
+              <strong>Certificate of Virtual Internship — EduSkills / Google for Developers</strong><br>
+              Issued by AICTE · India Edu Program · Apr Jun 2024
+            </div>
+            <a href="https://drive.google.com/file/d/1xiD-qL7DXKrOOqP9Cy1y3dxEHx3xS5Zx/view?usp=sharing" target="_blank" class="cert-link">View Certificate ↗</a>
+          </div>
+          <div class="impact-row">
+            <div class="impact-cell"><div class="impact-val b">10</div><div class="impact-desc">Week intensive<br>program</div></div>
+            <div class="impact-cell"><div class="impact-val b">AICTE</div><div class="impact-desc">Certified<br>credential</div></div>
+            <div class="impact-cell"><div class="impact-val b">Google</div><div class="impact-desc">India Edu<br>Program</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-nav">
+  <a href="about.html" class="btn btn-ghost">← About</a>
+  <a href="projects.html" class="btn btn-primary">Projects →</a>
+</div>
+
+
+</div>
+</div>
+<script>
+function tick(){const n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
