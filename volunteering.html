@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Volunteering — Karan Pandey</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.vol-page { padding:72px 0 40px; }
+
+.vol-hero {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px 36px;
+  display:grid; grid-template-columns:1fr auto;
+  gap:32px; align-items:center;
+  margin-bottom:40px;
+  position:relative; overflow:hidden;
+}
+.vol-hero::before {
+  content:'';
+  position:absolute; left:0; top:0; bottom:0;
+  width:4px;
+  background:linear-gradient(180deg, var(--green), var(--blue));
+}
+.vol-hero-tag { font-size:10px; color:var(--green); letter-spacing:0.16em; text-transform:uppercase; margin-bottom:10px; }
+.vol-hero-title { font-size:26px; font-weight:700; color:#fff; margin-bottom:8px; }
+.vol-hero-sub { font-size:14px; color:var(--muted); font-family:var(--sans); line-height:1.7; }
+.vol-hero-sub strong { color:var(--text); font-weight:400; }
+.vol-hero-stat { text-align:center; padding:20px 28px; background:var(--bg3); border:1px solid var(--border); border-radius:var(--radius-lg); }
+.vol-hero-num { font-size:40px; font-weight:700; color:var(--green); line-height:1; }
+.vol-hero-label { font-size:10px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px; }
+
+/* Card */
+.vol-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:border-color 0.2s;
+}
+.vol-card:hover { border-color:var(--border2); }
+
+.vol-card-header {
+  padding:24px 28px 20px;
+  border-bottom:1px solid var(--border);
+  display:grid; grid-template-columns:1fr auto;
+  gap:16px; align-items:start;
+}
+.vol-org-row { display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+.vol-org { font-size:18px; font-weight:700; color:#fff; }
+.vol-role { font-size:14px; color:var(--green); letter-spacing:0.04em; margin-bottom:8px; }
+.vol-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.vol-right { text-align:right; }
+.vol-period { font-size:10px; color:var(--muted); background:var(--bg3); border:1px solid var(--border); padding:3px 10px; border-radius:2px; letter-spacing:0.06em; white-space:nowrap; }
+.vol-loc { font-size:11px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px; }
+
+.vol-body { padding:28px; }
+.vol-section-label { font-size:10px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
+
+.vol-bullets { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.vol-bullets li {
+  font-size:13px; color:var(--muted);
+  padding-left:18px; position:relative;
+  line-height:1.65; font-family:var(--sans);
+}
+.vol-bullets li::before { content:'▸'; position:absolute; left:0; color:var(--green); font-size:10px; top:3px; }
+.vol-bullets li strong { color:var(--text); font-weight:500; }
+
+/* Impact block */
+.vol-impact {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:12px; margin-top:24px; padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.vi-cell { text-align:center; padding:16px 10px; background:var(--bg3); border-radius:var(--radius); }
+.vi-val { font-size:22px; font-weight:700; color:var(--green); line-height:1; margin-bottom:4px; }
+.vi-val.b { color:var(--blue); }
+.vi-val.a { color:var(--amber); }
+.vi-desc { font-size:10px; color:var(--muted); letter-spacing:0.04em; line-height:1.4; }
+
+/* Quote block */
+.vol-quote {
+  background:var(--green-dim);
+  border:1px solid var(--border2);
+  border-left:3px solid var(--green);
+  border-radius:var(--radius);
+  padding:16px 20px;
+  margin-top:20px;
+}
+.vol-quote p {
+  font-size:13px; color:var(--text);
+  font-family:var(--sans); line-height:1.7;
+  font-style:italic;
+}
+.vol-quote .source {
+  font-size:11px; color:var(--muted);
+  margin-top:8px; font-style:normal;
+  font-family:var(--mono); letter-spacing:0.04em;
+}
+
+/* Values section */
+.values-mini {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:14px; margin-top:40px;
+}
+.vm-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px;
+  transition:border-color 0.2s;
+}
+.vm-card:hover { border-color:var(--border2); }
+.vm-icon { font-size:22px; margin-bottom:10px; }
+.vm-title { font-size:12px; font-weight:600; color:#fff; margin-bottom:6px; }
+.vm-desc { font-size:11px; color:var(--muted); font-family:var(--sans); line-height:1.6; }
+
+.page-nav { display:flex; justify-content:space-between; gap:12px; padding:40px 0; border-top:1px solid var(--border); margin-top:8px; }
+
+@media(max-width:768px){
+  .vol-hero { grid-template-columns:1fr; }
+  .vol-card-header { grid-template-columns:1fr; }
+  .vol-impact { grid-template-columns:repeat(2,1fr); }
+  .values-mini { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html">experience</a>
+      <a href="projects.html">projects</a>
+      <a href="skills.html">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html" class="active">volunteering</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot"></div>GIVING BACK</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+<div class="container">
+<section class="vol-page">
+
+  <div class="sec-header fade-up">
+    <span class="sec-tag">community</span>
+    <h2 class="sec-title">Volunteering</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- Hero block -->
+  <div class="vol-hero fade-up d1">
+    <div>
+      <div class="vol-hero-tag">Social Impact · Education</div>
+      <div class="vol-hero-title">Teaching beyond the terminal</div>
+      <p class="vol-hero-sub">
+        Outside of systems and code, I believe in giving back — especially in <strong>STEM education access</strong>
+        for underprivileged children. Volunteering at Sakhi Sahiyog gave me a different kind of engineering
+        challenge: how do you make learning <strong>stick</strong> for kids who've never had consistent access to it?
+      </p>
+    </div>
+    <div class="vol-hero-stat">
+      <div class="vol-hero-num">2</div>
+      <div class="vol-hero-label">Months Active</div>
+    </div>
+  </div>
+
+  <!-- Volunteering card -->
+  <div class="vol-card fade-up d2">
+    <div class="vol-card-header">
+      <div>
+        <div class="vol-org-row">
+          <span class="vol-org">Sakhi Sahiyog</span>
+          <span class="badge badge-green">SOCIAL SERVICES</span>
+        </div>
+        <div class="vol-role">Educator</div>
+        <div class="vol-tags">
+          <span class="tech-tag">STEM Education</span>
+          <span class="tech-tag">Teaching</span>
+          <span class="tech-tag">Award-Based Learning</span>
+          <span class="tech-tag">1-on-1 Mentoring</span>
+        </div>
+      </div>
+      <div class="vol-right">
+        <div class="vol-loc">India</div>
+        <div class="vol-period">May 2025 – Jun 2025</div>
+      </div>
+    </div>
+
+    <div class="vol-body">
+      <div class="vol-section-label">What I did</div>
+      <ul class="vol-bullets">
+        <li>
+          Helped <strong>underprivileged children</strong> by educating them in key subjects of STEM — making
+          complex concepts accessible and engaging for kids with limited prior exposure
+        </li>
+        <li>
+          Applied <strong>award-based learning methodology</strong> — using positive reinforcement and milestone rewards
+          to stimulate continued interest in learning, turning curiosity into habit
+        </li>
+        <li>
+          Used <strong>multiple teaching methods</strong> adapted to individual learning styles — visual aids,
+          interactive demonstrations, and hands-on problem-solving to accommodate different paces
+        </li>
+        <li>
+          Taught through <strong>one-on-one interaction</strong> to give each child focused attention, identify
+          where they were struggling, and personalise explanations in real time
+        </li>
+      </ul>
+
+      <div class="vol-quote">
+        <p>
+          "The best engineers are also great teachers — they can break down complexity until it's obvious.
+          Volunteering forced me to do exactly that, for an audience that had no context and no patience
+          for jargon. It made me a sharper communicator."
+        </p>
+        <div class="source">— Karan Pandey, on the experience</div>
+      </div>
+
+      <div class="vol-impact">
+        <div class="vi-cell"><div class="vi-val">2</div><div class="vi-desc">Months of<br>active teaching</div></div>
+        <div class="vi-cell"><div class="vi-val b">STEM</div><div class="vi-desc">Subjects<br>covered</div></div>
+        <div class="vi-cell"><div class="vi-val a">1-on-1</div><div class="vi-desc">Personalised<br>teaching model</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What I learned -->
+  <div class="sec-header fade-up" style="margin-top:48px">
+    <span class="sec-tag">takeaways</span>
+    <h2 class="sec-title">What it taught me</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="values-mini">
+    <div class="vm-card fade-up d1">
+      <div class="vm-icon">🗣️</div>
+      <div class="vm-title">Clear communication</div>
+      <div class="vm-desc">Explaining concepts to kids with no background forces radical clarity. That skill translates directly to writing clean documentation, readable code, and effective PR reviews.</div>
+    </div>
+    <div class="vm-card fade-up d2">
+      <div class="vm-icon">🎯</div>
+      <div class="vm-title">Adaptive problem-solving</div>
+      <div class="vm-desc">When one teaching method doesn't work, you iterate fast. The same mindset applies in debugging — try a different angle, check your assumptions, and adapt.</div>
+    </div>
+    <div class="vm-card fade-up d3">
+      <div class="vm-icon">🌱</div>
+      <div class="vm-title">Patience & persistence</div>
+      <div class="vm-desc">Progress isn't always linear. Teaching reinforced that consistent effort over time — even in small sessions — creates lasting change. True of learning, systems, and people.</div>
+    </div>
+  </div>
+
+</section>
+
+<div class="page-nav">
+  <a href="certificates.html" class="btn btn-ghost">← Certificates</a>
+  <a href="contact.html" class="btn btn-primary">Contact →</a>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Karan Pandey</span>
+  <span id="clock">--:--:-- UTC</span>
+  <span>Delhi NCR, India</span>
+</footer>
+</div>
+</div>
+<script>
+function tick(){const n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

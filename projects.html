@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Projects — Karan Pandey</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.proj-page { padding:72px 0 40px; }
+
+.proj-grid {
+  display:grid; grid-template-columns:1fr;
+  gap:24px;
+}
+
+.proj-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:border-color 0.2s;
+  position:relative;
+}
+.proj-card:hover { border-color:var(--border2); }
+.proj-card::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:3px;
+  background:linear-gradient(90deg, var(--green), var(--blue));
+  transform:scaleX(0); transition:transform 0.4s ease;
+  transform-origin:left;
+}
+.proj-card:hover::before { transform:scaleX(1); }
+
+.proj-header {
+  padding:28px 32px 22px;
+  border-bottom:1px solid var(--border);
+  display:grid; grid-template-columns:1fr auto;
+  gap:24px; align-items:start;
+}
+.proj-num {
+  font-size:10px; color:var(--muted);
+  letter-spacing:0.12em; margin-bottom:8px;
+}
+.proj-name {
+  font-size:22px; font-weight:700; color:#fff;
+  margin-bottom:6px; letter-spacing:-0.01em;
+}
+.proj-period { font-size:11px; color:var(--muted); letter-spacing:0.05em; margin-bottom:12px; }
+.proj-tags { display:flex; gap:6px; flex-wrap:wrap; }
+
+.proj-links { display:flex; gap:8px; flex-direction:column; align-items:flex-end; }
+.proj-link {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; color:var(--muted);
+  border:1px solid var(--border);
+  padding:6px 14px; border-radius:3px;
+  text-decoration:none; transition:all 0.15s;
+  white-space:nowrap; letter-spacing:0.04em;
+}
+.proj-link:hover { color:var(--green); border-color:var(--green); }
+.proj-link.primary { color:var(--green); border-color:var(--border2); }
+
+.proj-body {
+  display:grid; grid-template-columns:1fr 280px;
+  gap:0;
+}
+.proj-desc-col {
+  padding:28px 32px;
+  border-right:1px solid var(--border);
+}
+.proj-desc {
+  font-family:var(--sans); font-size:14px;
+  color:var(--muted); line-height:1.8;
+  margin-bottom:20px;
+}
+.proj-highlights-label {
+  font-size:10px; color:var(--muted);
+  letter-spacing:0.1em; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.proj-bullets {
+  list-style:none;
+  display:flex; flex-direction:column; gap:9px;
+}
+.proj-bullets li {
+  font-size:12px; color:var(--muted);
+  padding-left:16px; position:relative;
+  line-height:1.65; font-family:var(--sans);
+}
+.proj-bullets li::before {
+  content:'▸'; position:absolute; left:0;
+  color:var(--green); font-size:10px; top:2px;
+}
+.proj-bullets li strong { color:var(--text); font-weight:500; }
+.proj-bullets li .n { color:var(--green); font-family:var(--mono); font-size:11px; }
+
+.proj-metrics-col {
+  padding:28px 24px;
+  display:flex; flex-direction:column; gap:12px;
+}
+.pm-label {
+  font-size:10px; color:var(--muted);
+  letter-spacing:0.1em; text-transform:uppercase;
+  margin-bottom:4px;
+}
+.pm-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.pm-cell {
+  background:var(--bg3);
+  border-radius:var(--radius);
+  padding:14px 12px; text-align:center;
+}
+.pm-val {
+  font-size:20px; font-weight:700;
+  color:var(--green); line-height:1; margin-bottom:3px;
+}
+.pm-val.a{color:var(--amber)} .pm-val.b{color:var(--blue)} .pm-val.w{color:#fff}
+.pm-desc { font-size:9px; color:var(--muted); letter-spacing:0.04em; line-height:1.4; }
+
+.tech-section { margin-top:auto; }
+.tech-grid { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+
+.page-nav {
+  display:flex; justify-content:space-between; gap:12px;
+  padding:40px 0; border-top:1px solid var(--border); margin-top:8px;
+}
+
+@media(max-width:768px){
+  .proj-body { grid-template-columns:1fr; }
+  .proj-desc-col { border-right:none; border-bottom:1px solid var(--border); }
+  .proj-header { grid-template-columns:1fr; }
+  .proj-links { flex-direction:row; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="logo">KP<span>/</span>SYS</a>
+    <div class="nav-links">
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="experience.html">experience</a>
+      <a href="projects.html" class="active">projects</a>
+      <a href="skills.html">skills</a>
+      <a href="certificates.html">certificates</a>
+      <a href="volunteering.html">volunteering</a>
+      <a href="contact.html">contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="dot-status"><div class="dot blue"></div>2 SHIPPED</div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+<div class="container">
+<section class="proj-page">
+
+  <div class="sec-header fade-up">
+    <span class="sec-tag">shipped</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="proj-grid">
+
+    <!-- ProConnect -->
+    <div class="proj-card fade-up d1">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">01 / FULL-STACK PLATFORM</div>
+          <div class="proj-name">ProConnect</div>
+          <div class="proj-period">Jan 2026 – Mar 2026</div>
+          <div class="proj-tags">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">SQLAlchemy</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">JWT</span>
+          </div>
+        </div>
+        <div class="proj-links">
+          <a href="https://proconnect-frontend-3jmg.onrender.com/signup" target="_blank" class="proj-link primary">Live demo ↗</a>
+          <a href="https://github.com" target="_blank" class="proj-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc-col">
+          <p class="proj-desc">
+            A full-stack social feed platform built with FastAPI microservices and PostgreSQL.
+            Designed to handle real load — 100+ concurrent users, 1,000+ API requests per day —
+            with production-grade authentication, role-based access control, and sub-100ms response latency.
+          </p>
+          <div class="proj-highlights-label">Technical highlights</div>
+          <ul class="proj-bullets">
+            <li>Architected full-stack platform using <strong>FastAPI microservices</strong> and <strong>PostgreSQL</strong> — JWT-based auth and RBAC supporting <span class="n">100+</span> concurrent users</li>
+            <li>Built <span class="n">10+</span> REST APIs with optimized SQL, strategic indexing, and SQLAlchemy ORM — applied OOP design patterns to improve <strong>query speed by 25%</strong> and data retrieval by <span class="n">3×</span> on 50K+ records</li>
+            <li>Containerized and deployed backend with Docker — reproducible builds, environment parity, <strong>sub-100ms API response latency in production</strong></li>
+            <li>Implemented <strong>pagination-driven social feed</strong> with limit-offset queries and server-side filtering — reduced average API response time by 35%, doubled throughput under peak load</li>
+          </ul>
+        </div>
+        <div class="proj-metrics-col">
+          <div>
+            <div class="pm-label">Key metrics</div>
+            <div class="pm-grid">
+              <div class="pm-cell"><div class="pm-val">10+</div><div class="pm-desc">REST APIs built</div></div>
+              <div class="pm-cell"><div class="pm-val">3×</div><div class="pm-desc">Data retrieval speedup</div></div>
+              <div class="pm-cell"><div class="pm-val a">25%</div><div class="pm-desc">Query speed gain</div></div>
+              <div class="pm-cell"><div class="pm-val a">35%</div><div class="pm-desc">Faster API response</div></div>
+              <div class="pm-cell"><div class="pm-val b">50K+</div><div class="pm-desc">Records indexed</div></div>
+              <div class="pm-cell"><div class="pm-val w">&lt;100ms</div><div class="pm-desc">P99 latency</div></div>
+            </div>
+          </div>
+          <div class="tech-section">
+            <div class="pm-label">Architecture</div>
+            <div class="tech-grid">
+              <span class="tech-tag">Microservices</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">ORM</span>
+              <span class="tech-tag">RBAC</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fraud Detection -->
+    <div class="proj-card fade-up d2">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">02 / ML PIPELINE</div>
+          <div class="proj-name">Real-Time Fraud Detection Pipeline</div>
+          <div class="proj-period">Nov 2025 – Jan 2026</div>
+          <div class="proj-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Scikit-learn</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Isolation Forest</span>
+            <span class="tech-tag">SMOTE</span>
+          </div>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com" target="_blank" class="proj-link primary">GitHub →</a>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc-col">
+          <p class="proj-desc">
+            A modular ML pipeline for financial anomaly detection on a severely imbalanced dataset.
+            Processes 284K+ transactions with 0.17% fraud prevalence — the hardest class of ML problem.
+            Containerized for sub-50ms per-record inference in production.
+          </p>
+          <div class="proj-highlights-label">Technical highlights</div>
+          <ul class="proj-bullets">
+            <li>Built modular ML pipeline processing <span class="n">284K+</span> transactions — trained Isolation Forest model achieving <strong>0.91 precision</strong> and <strong>0.76 recall</strong> on imbalanced dataset with only 0.17% fraud prevalence</li>
+            <li>Addressed class imbalance using <strong>SMOTE and threshold tuning</strong> — reduced false negatives by <span class="n">18%</span> over baseline</li>
+            <li>Added structured input validation and failure handling to ensure robust processing of malformed records</li>
+            <li>Packaged in a containerized environment achieving <strong>under 50ms per-record inference latency</strong> — consistent, reproducible deployments across environments</li>
+          </ul>
+        </div>
+        <div class="proj-metrics-col">
+          <div>
+            <div class="pm-label">Model metrics</div>
+            <div class="pm-grid">
+              <div class="pm-cell"><div class="pm-val">0.91</div><div class="pm-desc">Precision score</div></div>
+              <div class="pm-cell"><div class="pm-val">0.76</div><div class="pm-desc">Recall score</div></div>
+              <div class="pm-cell"><div class="pm-val a">−18%</div><div class="pm-desc">False negatives vs baseline</div></div>
+              <div class="pm-cell"><div class="pm-val a">0.17%</div><div class="pm-desc">Fraud prevalence (imbalanced)</div></div>
+              <div class="pm-cell"><div class="pm-val b">284K+</div><div class="pm-desc">Transactions processed</div></div>
+              <div class="pm-cell"><div class="pm-val w">&lt;50ms</div><div class="pm-desc">Inference latency</div></div>
+            </div>
+          </div>
+          <div class="tech-section">
+            <div class="pm-label">Techniques</div>
+            <div class="tech-grid">
+              <span class="tech-tag">Isolation Forest</span>
+              <span class="tech-tag">SMOTE</span>
+              <span class="tech-tag">Threshold tuning</span>
+              <span class="tech-tag">Vectorization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-nav">
+  <a href="experience.html" class="btn btn-ghost">← Experience</a>
+  <a href="skills.html" class="btn btn-primary">Skills →</a>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Karan Pandey</span>
+  <span id="clock">--:--:-- UTC</span>
+  <span>Delhi NCR, India</span>
+</footer>
+</div>
+</div>
+<script>
+function tick(){const n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
