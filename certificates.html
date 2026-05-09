@@ -8,7 +8,6 @@
 <style>
 .cert-page { padding:72px 0 40px; }
 
-/* Filter tabs */
 .filter-row {
   display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px;
 }
@@ -38,7 +37,6 @@
 }
 .cert-card:hover { border-color:var(--border2); transform:translateY(-2px); }
 
-/* Colored top stripe per category */
 .cert-card.internship .cert-stripe { background:linear-gradient(90deg,var(--green),transparent); }
 .cert-card.google     .cert-stripe { background:linear-gradient(90deg,#4285f4,transparent); }
 .cert-card.cloud      .cert-stripe { background:linear-gradient(90deg,#ff9900,transparent); }
@@ -92,7 +90,6 @@
 }
 .cert-action-ext:hover { color:var(--text); border-color:var(--border2); }
 
-/* Stats bar at top */
 .cert-stats {
   display:grid; grid-template-columns:repeat(4,1fr);
   gap:1px; background:var(--border);
@@ -141,7 +138,6 @@
     <div class="sec-line"></div>
   </div>
 
-  <!-- Stats -->
   <div class="cert-stats fade-up d1">
     <div class="cs-cell"><div class="cs-num">3</div><div class="cs-label">Internship Certs</div></div>
     <div class="cs-cell"><div class="cs-num" style="color:var(--blue)">4</div><div class="cs-label">Google Certs</div></div>
@@ -149,7 +145,6 @@
     <div class="cs-cell"><div class="cs-num" style="color:var(--purple)">5+</div><div class="cs-label">Dev / Course Certs</div></div>
   </div>
 
-  <!-- Filter -->
   <div class="filter-row fade-up d2">
     <button class="filter-btn active" onclick="filterCerts('all',this)">All</button>
     <button class="filter-btn" onclick="filterCerts('internship',this)">Internships</button>
@@ -159,10 +154,8 @@
     <button class="filter-btn" onclick="filterCerts('coursera',this)">Coursera</button>
   </div>
 
-  <!-- Cert Grid -->
   <div class="cert-grid" id="certGrid">
 
-    <!-- ── INTERNSHIP CERTIFICATES ── -->
     <div class="cert-card internship fade-up d1" data-cat="internship">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -172,7 +165,7 @@
         </div>
         <div class="cert-name">R&D Internship Certificate</div>
         <div class="cert-meta">
-          <span class="cert-date">May – Jul 2025</span>
+          <span class="cert-date">May  Jul 2025</span>
           <span class="badge badge-blue">ONSITE</span>
         </div>
         <div class="cert-actions">
@@ -190,7 +183,7 @@
         </div>
         <div class="cert-name">Data Migration Internship Certificate</div>
         <div class="cert-meta">
-          <span class="cert-date">Jun – Jul 2024</span>
+          <span class="cert-date">Jun  Jul 2024</span>
           <span class="badge badge-amber">FINTECH</span>
         </div>
         <div class="cert-actions">
@@ -208,7 +201,7 @@
         </div>
         <div class="cert-name">Android Developer Virtual Internship Certificate</div>
         <div class="cert-meta">
-          <span class="cert-date">Apr – Jun 2024</span>
+          <span class="cert-date">Apr  Jun 2024</span>
           <span class="badge badge-green">10 WEEKS</span>
         </div>
         <div class="cert-actions">
@@ -217,7 +210,6 @@
       </div>
     </div>
 
-    <!-- ── GOOGLE CERTIFICATES ── -->
     <div class="cert-card google fade-up d1" data-cat="google">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -253,7 +245,6 @@
       </div>
     </div>
 
-    <!-- ── CLOUD CERTIFICATES ── -->
     <div class="cert-card cloud fade-up d1" data-cat="cloud">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -288,7 +279,6 @@
       </div>
     </div>
 
-    <!-- ── DEV / COURSERA CERTIFICATES ── -->
     <div class="cert-card coursera fade-up d1" data-cat="coursera dev">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -342,9 +332,8 @@
 
   </div><!-- /cert-grid -->
 
-  <!-- Note about LinkedIn -->
   <div style="margin-top:24px;padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;gap:12px;" class="fade-up">
-    <span style="font-size:18px">💡</span>
+    <span style="font-size:18px"></span>
     <p style="font-size:12px;color:var(--muted);font-family:var(--sans);line-height:1.6;">
       <strong style="color:var(--text)">Note:</strong> Some certificate links above are placeholders from LinkedIn profile data.
       To add direct certificate links, replace the <code style="color:var(--green);font-size:11px;">cert-action-ext</code> elements with 
@@ -359,11 +348,7 @@
   <a href="volunteering.html" class="btn btn-primary">Volunteering →</a>
 </div>
 
-<footer class="footer">
-  <span>© 2026 Karan Pandey</span>
-  <span id="clock">--:--:-- UTC</span>
-  <span>Delhi NCR, India</span>
-</footer>
+
 </div>
 </div>
 

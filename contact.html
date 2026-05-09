@@ -13,7 +13,6 @@
   gap:56px; align-items:start;
 }
 
-/* Left info side */
 .contact-intro { margin-bottom:36px; }
 .contact-heading {
   font-size:clamp(28px,4vw,42px); font-weight:700;
@@ -27,7 +26,6 @@
 }
 .contact-subtext strong { color:var(--text); font-weight:400; }
 
-/* Services (availability) */
 .availability {
   background:var(--bg2); border:1px solid var(--border);
   border-radius:var(--radius-lg); overflow:hidden;
@@ -57,7 +55,6 @@
 .avail-label { font-size:11px; color:var(--green); }
 .avail-label.filled { color:var(--muted2); }
 
-/* Contact links */
 .contact-links { display:flex; flex-direction:column; gap:8px; }
 .clink {
   display:flex; align-items:center; gap:12px;
@@ -79,7 +76,6 @@
 .clink-arrow { font-size:14px; color:var(--muted); }
 .clink:hover .clink-arrow { color:var(--green); }
 
-/* ── FORM ── */
 .form-card {
   background:var(--bg2);
   border:1px solid var(--border);
@@ -133,7 +129,6 @@
   color:var(--muted); margin-top:4px;
 }
 
-/* Submit */
 .submit-btn {
   width:100%; padding:13px;
   background:var(--green); color:#000;
@@ -157,7 +152,6 @@
   margin-top:12px; line-height:1.6; font-family:var(--sans);
 }
 
-/* Status messages */
 .status-msg {
   display:none; padding:14px 16px;
   border-radius:var(--radius); margin-top:16px;
@@ -181,7 +175,6 @@
   color:var(--muted);
 }
 
-/* Spinner */
 .spinner {
   width:14px; height:14px;
   border:2px solid var(--border2);
@@ -235,7 +228,7 @@
 
   <div class="contact-grid">
 
-    <!-- LEFT: info -->
+    
     <div>
       <div class="contact-intro fade-up d1">
         <h2 class="contact-heading">Let's build<br>something <span class="g">fast.</span></h2>
@@ -309,7 +302,6 @@
       </div>
     </div>
 
-    <!-- RIGHT: form -->
     <div class="form-card fade-up d2">
       <div class="form-header">
         <span class="form-title">send_message.py</span>
@@ -340,7 +332,7 @@
               <option value="Internship">Internship</option>
               <option value="Freelance / Contract">Freelance / Contract</option>
               <option value="Collaboration">Open Source / Collaboration</option>
-              <option value="Just saying hi">Just saying hi 👋</option>
+              <option value="Just saying hi">Just saying hi </option>
             </select>
           </div>
 
@@ -385,7 +377,6 @@
 </div>
 
 <script>
-// Clock
 function tick(){
   const n=new Date();
   const t=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';
@@ -394,12 +385,10 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
-// Char count
 document.getElementById('message').addEventListener('input',function(){
   document.getElementById('charCount').textContent=this.value.length;
 });
 
-// Form submit
 document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
@@ -414,7 +403,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
     message: document.getElementById('message').value.trim(),
   };
 
-  // Show loading
   btn.disabled = true;
   status.className = 'status-msg loading';
   status.innerHTML = '<div class="spinner"></div><span>Sending message...</span>';

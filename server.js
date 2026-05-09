@@ -7,28 +7,22 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ── MIDDLEWARE ──
 app.use(cors());
 app.use(express.json());
 
-// Serve all portfolio HTML/CSS files as static
 app.use(express.static(path.join(__dirname)));
 
-// ── EMAIL TRANSPORTER ──
-// Uses Gmail App Password (see .env setup below)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER,   // your Gmail address
-    pass: process.env.GMAIL_PASS,   // Gmail App Password (not your real password)
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
   },
 });
 
-// ── CONTACT API ──
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, company, message } = req.body;
 
-  // Basic validation
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
@@ -41,7 +35,6 @@ app.post('/api/contact', async (req, res) => {
   const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
   try {
-    // ── EMAIL 1: Notify Karan ──
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER,   // sends to your own Gmail
@@ -74,7 +67,7 @@ app.post('/api/contact', async (req, res) => {
     <div class="logo">KP<span>/</span>SYS</div>
   </div>
   <div class="tag">NEW_CONTACT_SUBMISSION</div>
-  <h2>You got a message 🎉</h2>
+  <h2>You got a message </h2>
   <p class="sub">Received at ${timestamp} IST via portfolio contact form</p>
 
   <div class="field">
@@ -109,7 +102,6 @@ app.post('/api/contact', async (req, res) => {
       `,
     });
 
-    // ── EMAIL 2: Confirmation to visitor ──
     await transporter.sendMail({
       from: `"Karan Pandey" <${process.env.GMAIL_USER}>`,
       to: email,
@@ -150,7 +142,7 @@ app.post('/api/contact', async (req, res) => {
     <div class="logo">KP<span>/</span>SYS</div>
   </div>
 
-  <div class="greeting">Hey ${email} 👋</div>
+  <div class="greeting">Hey ${email} </div>
 
   <p class="body-text">
     Thanks for reaching out! I've received your message and will get back to you as soon as possible — 
@@ -219,6 +211,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Portfolio server running at http://localhost:${PORT}`);
+  console.log(`\n Portfolio server running at http://localhost:${PORT}`);
   console.log(`   Open http://localhost:${PORT} in your browser\n`);
 });
