@@ -13,6 +13,10 @@
   gap:56px; align-items:start;
 }
 
+<<<<<<< HEAD
+=======
+/* Left info side */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .contact-intro { margin-bottom:36px; }
 .contact-heading {
   font-size:clamp(28px,4vw,42px); font-weight:700;
@@ -26,6 +30,10 @@
 }
 .contact-subtext strong { color:var(--text); font-weight:400; }
 
+<<<<<<< HEAD
+=======
+/* Services (availability) */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .availability {
   background:var(--bg2); border:1px solid var(--border);
   border-radius:var(--radius-lg); overflow:hidden;
@@ -55,6 +63,10 @@
 .avail-label { font-size:11px; color:var(--green); }
 .avail-label.filled { color:var(--muted2); }
 
+<<<<<<< HEAD
+=======
+/* Contact links */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .contact-links { display:flex; flex-direction:column; gap:8px; }
 .clink {
   display:flex; align-items:center; gap:12px;
@@ -76,6 +88,10 @@
 .clink-arrow { font-size:14px; color:var(--muted); }
 .clink:hover .clink-arrow { color:var(--green); }
 
+<<<<<<< HEAD
+=======
+/* ── FORM ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .form-card {
   background:var(--bg2);
   border:1px solid var(--border);
@@ -129,6 +145,10 @@
   color:var(--muted); margin-top:4px;
 }
 
+<<<<<<< HEAD
+=======
+/* Submit */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .submit-btn {
   width:100%; padding:13px;
   background:var(--green); color:#000;
@@ -152,6 +172,10 @@
   margin-top:12px; line-height:1.6; font-family:var(--sans);
 }
 
+<<<<<<< HEAD
+=======
+/* Status messages */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .status-msg {
   display:none; padding:14px 16px;
   border-radius:var(--radius); margin-top:16px;
@@ -175,6 +199,10 @@
   color:var(--muted);
 }
 
+<<<<<<< HEAD
+=======
+/* Spinner */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .spinner {
   width:14px; height:14px;
   border:2px solid var(--border2);
@@ -228,7 +256,11 @@
 
   <div class="contact-grid">
 
+<<<<<<< HEAD
     
+=======
+    <!-- LEFT: info -->
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
     <div>
       <div class="contact-intro fade-up d1">
         <h2 class="contact-heading">Let's build<br>something <span class="g">fast.</span></h2>
@@ -302,6 +334,10 @@
       </div>
     </div>
 
+<<<<<<< HEAD
+=======
+    <!-- RIGHT: form -->
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
     <div class="form-card fade-up d2">
       <div class="form-header">
         <span class="form-title">send_message.py</span>
@@ -332,7 +368,11 @@
               <option value="Internship">Internship</option>
               <option value="Freelance / Contract">Freelance / Contract</option>
               <option value="Collaboration">Open Source / Collaboration</option>
+<<<<<<< HEAD
               <option value="Just saying hi">Just saying hi </option>
+=======
+              <option value="Just saying hi">Just saying hi 👋</option>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
             </select>
           </div>
 
@@ -377,6 +417,10 @@
 </div>
 
 <script>
+<<<<<<< HEAD
+=======
+// Clock
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 function tick(){
   const n=new Date();
   const t=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';
@@ -385,10 +429,18 @@ function tick(){
 }
 tick(); setInterval(tick,1000);
 
+<<<<<<< HEAD
+=======
+// Char count
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 document.getElementById('message').addEventListener('input',function(){
   document.getElementById('charCount').textContent=this.value.length;
 });
 
+<<<<<<< HEAD
+=======
+// Form submit
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
@@ -403,6 +455,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
     message: document.getElementById('message').value.trim(),
   };
 
+<<<<<<< HEAD
+=======
+  // Show loading
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
   btn.disabled = true;
   status.className = 'status-msg loading';
   status.innerHTML = '<div class="spinner"></div><span>Sending message...</span>';

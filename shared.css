@@ -37,6 +37,10 @@ body {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
+=======
+/* Scanlines */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 body::before {
   content:'';
   position:fixed; inset:0;
@@ -45,6 +49,10 @@ body::before {
   z-index:9999;
 }
 
+<<<<<<< HEAD
+=======
+/* Grid bg */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .grid-bg {
   position:fixed; inset:0;
   background-image:
@@ -55,6 +63,10 @@ body::before {
   z-index:0;
 }
 
+<<<<<<< HEAD
+=======
+/* ── TOPBAR ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .topbar {
   position:fixed; top:0; left:0; right:0;
   height:56px;
@@ -131,6 +143,10 @@ body::before {
   0%,100%{opacity:1} 50%{opacity:0.35}
 }
 
+<<<<<<< HEAD
+=======
+/* ── LAYOUT ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .page-wrap {
   padding-top:56px;
   min-height:100vh;
@@ -144,6 +160,10 @@ body::before {
   padding:0 28px;
 }
 
+<<<<<<< HEAD
+=======
+/* ── SECTION HEADER ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .sec-header {
   display:flex; align-items:center; gap:14px;
   margin-bottom:36px;
@@ -164,6 +184,10 @@ body::before {
   background:linear-gradient(90deg,var(--border2),transparent);
 }
 
+<<<<<<< HEAD
+=======
+/* ── CARDS ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .card {
   background:var(--bg2);
   border:1px solid var(--border);
@@ -176,6 +200,10 @@ body::before {
   background:var(--bg3);
 }
 
+<<<<<<< HEAD
+=======
+/* ── BUTTONS ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .btn {
   display:inline-flex; align-items:center; gap:8px;
   padding:10px 20px;
@@ -199,6 +227,10 @@ body::before {
 }
 .btn-ghost:hover { border-color:var(--green); color:var(--green); }
 
+<<<<<<< HEAD
+=======
+/* ── TAGS / PILLS ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .tech-tag {
   font-size:10px; color:var(--blue);
   background:rgba(0,180,255,0.06);
@@ -217,6 +249,10 @@ body::before {
 .badge-blue  { background:rgba(0,180,255,0.08); border:1px solid rgba(0,180,255,0.25); color:var(--blue); }
 .badge-purple{ background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.25); color:var(--purple); }
 
+<<<<<<< HEAD
+=======
+/* ── FOOTER ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 .footer {
   border-top:1px solid var(--border);
   padding:20px 0;
@@ -225,6 +261,10 @@ body::before {
   margin-top:60px;
 }
 
+<<<<<<< HEAD
+=======
+/* ── ANIMATIONS ── */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 @keyframes fadeUp {
   from{opacity:0;transform:translateY(24px)}
   to{opacity:1;transform:translateY(0)}
@@ -242,6 +282,10 @@ body::before {
   animation:blink 1s step-end infinite;
 }
 
+<<<<<<< HEAD
+=======
+/* Mobile */
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 @media(max-width:768px){
   .topbar-inner { padding:0 16px; }
   .container { padding:0 16px; }

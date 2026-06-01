@@ -123,4 +123,8 @@ module.exports = async (req, res) => {
     console.error('Email error:', err);
     return res.status(500).json({ success: false, error: 'Failed to send email. Please try again.' });
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)

@@ -5,7 +5,11 @@ Node.js + Express backend with Nodemailer for contact form emails.
 
 ---
 
+<<<<<<< HEAD
 ##  File Structure
+=======
+## 📁 File Structure
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 
 ```
 karan-portfolio/
@@ -25,7 +29,11 @@ karan-portfolio/
 
 ---
 
+<<<<<<< HEAD
 ##  Quick Start
+=======
+## 🚀 Quick Start
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 
 ### 1. Install dependencies
 ```bash
@@ -106,7 +114,11 @@ Vercel supports Node.js serverless functions.
 3. Add Environment Variables in Vercel dashboard:
    - `GMAIL_USER` = karanpandey569@gmail.com
    - `GMAIL_PASS` = your app password
+<<<<<<< HEAD
 4. Deploy 
+=======
+4. Deploy ✅
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 
 ---
 

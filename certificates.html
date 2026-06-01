@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="shared.css">
 <style>
 .cert-page { padding:72px 0 40px; }
+<<<<<<< HEAD
 
 .filter-row {
   display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px;
@@ -104,6 +105,37 @@
 
 .page-nav { display:flex; justify-content:space-between; gap:12px; padding:40px 0; border-top:1px solid var(--border); margin-top:8px; }
 
+=======
+.filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:36px; }
+.filter-btn { padding:7px 16px; font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.07em; border-radius:3px; cursor:pointer; border:1px solid var(--border); background:transparent; color:var(--muted); transition:all 0.15s; }
+.filter-btn:hover { color:var(--text); border-color:var(--border2); }
+.filter-btn.active { background:var(--green-dim); border-color:var(--border2); color:var(--green); }
+.cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
+.cert-card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:border-color 0.2s, transform 0.2s; display:flex; flex-direction:column; }
+.cert-card:hover { border-color:var(--border2); transform:translateY(-2px); }
+.cert-card.internship .cert-stripe { background:linear-gradient(90deg,var(--green),transparent); }
+.cert-card.ibm .cert-stripe { background:linear-gradient(90deg,#1f70c1,transparent); }
+.cert-card.nptel .cert-stripe { background:linear-gradient(90deg,#c0392b,transparent); }
+.cert-stripe { height:3px; width:100%; }
+.cert-card-body { padding:20px 22px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.cert-issuer-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.cert-issuer { font-size:11px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+.cert-name { font-size:14px; font-weight:600; color:#fff; line-height:1.4; }
+.cert-meta { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.cert-date { font-size:11px; color:var(--muted2); }
+.cert-id { font-size:10px; color:var(--muted2); font-family:var(--mono); }
+.cert-skills { display:flex; flex-wrap:wrap; gap:5px; margin-top:2px; }
+.cert-skill-tag { font-size:10px; color:var(--muted); background:var(--bg3); border:1px solid var(--border); padding:2px 8px; border-radius:2px; }
+.cert-actions { display:flex; gap:8px; margin-top:auto; padding-top:12px; border-top:1px solid var(--border); }
+.cert-action-btn { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-family:var(--mono); padding:6px 12px; border-radius:3px; text-decoration:none; transition:all 0.15s; letter-spacing:0.04em; }
+.cert-action-view { background:var(--green-dim); color:var(--green); border:1px solid var(--border2); }
+.cert-action-view:hover { background:rgba(0,255,136,0.12); }
+.cert-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:32px; }
+.cs-cell { background:var(--bg2); padding:18px 16px; text-align:center; }
+.cs-num { font-size:28px; font-weight:700; color:var(--green); line-height:1; margin-bottom:4px; }
+.cs-label { font-size:10px; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; }
+.page-nav { display:flex; justify-content:space-between; gap:12px; padding:40px 0; border-top:1px solid var(--border); margin-top:8px; }
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 @media(max-width:600px){ .cert-stats { grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
@@ -140,22 +172,181 @@
 
   <div class="cert-stats fade-up d1">
     <div class="cs-cell"><div class="cs-num">3</div><div class="cs-label">Internship Certs</div></div>
+<<<<<<< HEAD
     <div class="cs-cell"><div class="cs-num" style="color:var(--blue)">4</div><div class="cs-label">Google Certs</div></div>
     <div class="cs-cell"><div class="cs-num" style="color:var(--amber)">3</div><div class="cs-label">Cloud Certs</div></div>
     <div class="cs-cell"><div class="cs-num" style="color:var(--purple)">5+</div><div class="cs-label">Dev / Course Certs</div></div>
+=======
+    <div class="cs-cell"><div class="cs-num" style="color:var(--blue)">5</div><div class="cs-label">IBM Certs</div></div>
+    <div class="cs-cell"><div class="cs-num" style="color:#c0392b">1</div><div class="cs-label">NPTEL</div></div>
+    <div class="cs-cell"><div class="cs-num" style="color:var(--amber)">9+</div><div class="cs-label">Total</div></div>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
   </div>
 
   <div class="filter-row fade-up d2">
     <button class="filter-btn active" onclick="filterCerts('all',this)">All</button>
     <button class="filter-btn" onclick="filterCerts('internship',this)">Internships</button>
+<<<<<<< HEAD
     <button class="filter-btn" onclick="filterCerts('google',this)">Google</button>
     <button class="filter-btn" onclick="filterCerts('cloud',this)">Cloud</button>
     <button class="filter-btn" onclick="filterCerts('dev',this)">Development</button>
     <button class="filter-btn" onclick="filterCerts('coursera',this)">Coursera</button>
+=======
+    <button class="filter-btn" onclick="filterCerts('ibm',this)">IBM</button>
+    <button class="filter-btn" onclick="filterCerts('nptel',this)">NPTEL</button>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
   </div>
 
   <div class="cert-grid" id="certGrid">
 
+<<<<<<< HEAD
+=======
+    <!-- NPTEL -->
+    <div class="cert-card nptel fade-up d1" data-cat="nptel">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-green">NPTEL</span>
+          <span class="cert-issuer">IIT Kharagpur</span>
+        </div>
+        <div class="cert-name">Natural Language Processing</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Apr 2026</span>
+        </div>
+        <div class="cert-id">ID: NPTEL26CS45S1055101262</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">NLP</span>
+          <span class="cert-skill-tag">Text Preprocessing</span>
+          <span class="cert-skill-tag">Tokenization</span>
+          <span class="cert-skill-tag">n-grams</span>
+          <span class="cert-skill-tag">Probabilistic Models</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://nptel.ac.in/noc/E_Certificate/linkedin/noc26-cs45/NPTEL26CS45S1055101262.jpg" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Flutter & Dart -->
+    <div class="cert-card ibm fade-up d2" data-cat="ibm">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-blue">IBM</span>
+          <span class="cert-issuer">IBM · Coursera</span>
+        </div>
+        <div class="cert-name">Flutter and Dart: Developing iOS, Android, and Mobile Apps</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued May 2025</span>
+        </div>
+        <div class="cert-id">ID: W7VT8IJJ6TAX</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Flutter</span>
+          <span class="cert-skill-tag">Dart</span>
+          <span class="cert-skill-tag">Android Development</span>
+          <span class="cert-skill-tag">iOS Development</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://www.coursera.org/verify/W7VT8IJJ6TAX" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Data Scientist Career Guide -->
+    <div class="cert-card ibm fade-up d3" data-cat="ibm">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-blue">IBM</span>
+          <span class="cert-issuer">IBM · Coursera</span>
+        </div>
+        <div class="cert-name">Data Scientist Career Guide and Interview Preparation</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Jan 2025</span>
+        </div>
+        <div class="cert-id">ID: 93YRVTPO30BS</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Data Science</span>
+          <span class="cert-skill-tag">Interview Prep</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://www.coursera.org/verify/93YRVTPO30BS" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Tools for Data Science -->
+    <div class="cert-card ibm fade-up d1" data-cat="ibm">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-blue">IBM</span>
+          <span class="cert-issuer">IBM · Coursera</span>
+        </div>
+        <div class="cert-name">Tools for Data Science V2</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Jan 2025</span>
+        </div>
+        <div class="cert-id">ID: EQCZOQ4YLTTO</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">MySQL</span>
+          <span class="cert-skill-tag">Python</span>
+          <span class="cert-skill-tag">Data Science Tools</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://www.coursera.org/verify/EQCZOQ4YLTTO" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Machine Learning with Python -->
+    <div class="cert-card ibm fade-up d2" data-cat="ibm">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-blue">IBM</span>
+          <span class="cert-issuer">IBM · Coursera</span>
+        </div>
+        <div class="cert-name">Machine Learning with Python</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Dec 2024</span>
+        </div>
+        <div class="cert-id">ID: X8HM4A9EF8YC</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Python</span>
+          <span class="cert-skill-tag">Machine Learning</span>
+          <span class="cert-skill-tag">Scikit-learn</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://www.coursera.org/verify/X8HM4A9EF8YC" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM What is Data Science -->
+    <div class="cert-card ibm fade-up d3" data-cat="ibm">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-blue">IBM</span>
+          <span class="cert-issuer">IBM · Coursera</span>
+        </div>
+        <div class="cert-name">What is Data Science?</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Dec 2024</span>
+        </div>
+        <div class="cert-id">ID: 9KO1WEIIBU5U</div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Data Science</span>
+        </div>
+        <div class="cert-actions">
+          <a href="https://www.coursera.org/verify/9KO1WEIIBU5U" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- YRRNA Internship -->
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
     <div class="cert-card internship fade-up d1" data-cat="internship">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -165,15 +356,30 @@
         </div>
         <div class="cert-name">R&D Internship Certificate</div>
         <div class="cert-meta">
+<<<<<<< HEAD
           <span class="cert-date">May  Jul 2025</span>
           <span class="badge badge-blue">ONSITE</span>
         </div>
+=======
+          <span class="cert-date">May – Jul 2025</span>
+          <span class="badge badge-blue">ONSITE</span>
+        </div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">C++</span>
+          <span class="cert-skill-tag">Distributed Systems</span>
+          <span class="cert-skill-tag">SQLite</span>
+        </div>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
         <div class="cert-actions">
           <a href="https://drive.google.com/file/d/1WMbf9ok5Uff-5VU8AxNT-tM7Vz4AALc0/view?usp=sharing" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
+=======
+    <!-- TradeTron Internship -->
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
     <div class="cert-card internship fade-up d2" data-cat="internship">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -181,18 +387,36 @@
           <span class="badge badge-green">INTERNSHIP</span>
           <span class="cert-issuer">TradeTron</span>
         </div>
+<<<<<<< HEAD
         <div class="cert-name">Data Migration Internship Certificate</div>
         <div class="cert-meta">
           <span class="cert-date">Jun  Jul 2024</span>
           <span class="badge badge-amber">FINTECH</span>
         </div>
+=======
+        <div class="cert-name">Data Science Internship Certificate</div>
+        <div class="cert-meta">
+          <span class="cert-date">Jun – Jul 2024</span>
+          <span class="badge badge-amber">FINTECH</span>
+        </div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Python</span>
+          <span class="cert-skill-tag">Pandas</span>
+          <span class="cert-skill-tag">SQL</span>
+        </div>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
         <div class="cert-actions">
           <a href="https://drive.google.com/file/d/1cYsJoFvQtzd-d-eqnCB-S6ALfWySSOmH/view?usp=sharing" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="cert-card google fade-up d3" data-cat="internship google">
+=======
+    <!-- EduSkills/Google Internship -->
+    <div class="cert-card internship fade-up d3" data-cat="internship">
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
         <div class="cert-issuer-row">
@@ -201,15 +425,27 @@
         </div>
         <div class="cert-name">Android Developer Virtual Internship Certificate</div>
         <div class="cert-meta">
+<<<<<<< HEAD
           <span class="cert-date">Apr  Jun 2024</span>
           <span class="badge badge-green">10 WEEKS</span>
         </div>
+=======
+          <span class="cert-date">Apr – Jun 2024</span>
+          <span class="badge badge-green">10 WEEKS</span>
+        </div>
+        <div class="cert-skills">
+          <span class="cert-skill-tag">Android</span>
+          <span class="cert-skill-tag">Flutter</span>
+          <span class="cert-skill-tag">Dart</span>
+        </div>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
         <div class="cert-actions">
           <a href="https://drive.google.com/file/d/1xiD-qL7DXKrOOqP9Cy1y3dxEHx3xS5Zx/view?usp=sharing" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="cert-card google fade-up d1" data-cat="google">
       <div class="cert-stripe"></div>
       <div class="cert-card-body">
@@ -341,6 +577,9 @@
     </p>
   </div>
 
+=======
+  </div>
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
 </section>
 
 <div class="page-nav">
@@ -348,6 +587,7 @@
   <a href="volunteering.html" class="btn btn-primary">Volunteering →</a>
 </div>
 
+<<<<<<< HEAD
 
 </div>
 </div>
@@ -366,6 +606,24 @@ function filterCerts(cat, btn) {
     } else {
       card.style.display='none';
     }
+=======
+<footer class="footer">
+  <span>© 2026 Karan Pandey</span>
+  <span id="clock">--:--:-- UTC</span>
+  <span>Delhi NCR, India</span>
+</footer>
+</div>
+</div>
+<script>
+function tick(){const n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0')+' UTC';}
+tick();setInterval(tick,1000);
+function filterCerts(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cert-card').forEach(card=>{
+    const cats=card.getAttribute('data-cat')||'';
+    card.style.display=(cat==='all'||cats.includes(cat))?'flex':'none';
+>>>>>>> 92a4d3e (feat: initial portfolio — 8 pages, contact backend, certificates & volunteering)
   });
 }
 </script>
