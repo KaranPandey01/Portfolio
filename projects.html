@@ -76,11 +76,70 @@
 
   <div class="proj-grid">
 
+    <!-- OrderBook -->
+    <div class="proj-card fade-up d1">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">01 / HIGH-PERFORMANCE SYSTEMS</div>
+          <div class="proj-name">OrderBook — C++ Limit Order Book Engine</div>
+          <div class="proj-period">Jan 2026 – May 2026</div>
+          <div class="proj-tags">
+            <span class="tech-tag">C++17</span>
+            <span class="tech-tag">pybind11</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">D3.js</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">JWT</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/KaranPandey01" target="_blank" class="proj-link primary">GitHub →</a>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-desc-col">
+          <p class="proj-desc">
+            A high-performance matching engine built in C++17 with price-time priority — bridged to a full Python/web stack via pybind11. Achieves 820K+ orders/sec sustained throughput. Features a portfolio/wallet system, real-time balance enforcement, and full transaction history.
+          </p>
+          <div class="proj-highlights-label">Technical highlights</div>
+          <ul class="proj-bullets">
+            <li>Built matching engine using <strong>std::map&lt;int64_t, deque&lt;Order&gt;&gt;</strong> with integer tick pricing to eliminate IEEE 754 floating-point correctness bugs present in naive implementations</li>
+            <li>Implemented <strong>O(1) order cancellation</strong> via unordered_map&lt;order_id, deque::iterator&gt; pointing directly into per-level FIFO queues; benchmarked <span class="n">820K+</span> orders/sec at 1M order load</li>
+            <li>Bridged C++ engine to Python via <strong>pybind11</strong>; exposed 13 REST endpoints through FastAPI with JWT (HS256) auth, bcrypt password hashing, and SQLite persistence using WAL mode</li>
+            <li>Designed portfolio/wallet system with <strong>real-time balance enforcement</strong>, automatic refunds on cancellation, holdings tracking with average price calculation, and full transaction history</li>
+          </ul>
+        </div>
+        <div class="proj-metrics-col">
+          <div>
+            <div class="pm-label">Performance</div>
+            <div class="pm-grid">
+              <div class="pm-cell"><div class="pm-val">820K+</div><div class="pm-desc">Orders/sec throughput</div></div>
+              <div class="pm-cell"><div class="pm-val">O(1)</div><div class="pm-desc">Order cancellation</div></div>
+              <div class="pm-cell"><div class="pm-val b">13</div><div class="pm-desc">REST endpoints</div></div>
+              <div class="pm-cell"><div class="pm-val b">1M</div><div class="pm-desc">Order load tested</div></div>
+            </div>
+          </div>
+          <div class="tech-section">
+            <div class="pm-label">Architecture</div>
+            <div class="tech-grid">
+              <span class="tech-tag">Price-time priority</span>
+              <span class="tech-tag">WAL-mode SQLite</span>
+              <span class="tech-tag">pybind11 bridge</span>
+              <span class="tech-tag">JWT auth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <!-- ProConnect -->
     <div class="proj-card fade-up d1">
       <div class="proj-header">
         <div>
-          <div class="proj-num">01 / FULL-STACK PLATFORM</div>
+          <div class="proj-num">02 / FULL-STACK PLATFORM</div>
           <div class="proj-name">ProConnect — Real-Time Social Feed Platform</div>
           <div class="proj-period">Jan 2026 – Mar 2026</div>
           <div class="proj-tags">
@@ -136,63 +195,6 @@
       </div>
     </div>
 
-    <!-- OrderBook -->
-    <div class="proj-card fade-up d1">
-      <div class="proj-header">
-        <div>
-          <div class="proj-num">02 / HIGH-PERFORMANCE SYSTEMS</div>
-          <div class="proj-name">OrderBook — C++ Limit Order Book Engine</div>
-          <div class="proj-period">Jan 2026 – May 2026</div>
-          <div class="proj-tags">
-            <span class="tech-tag">C++17</span>
-            <span class="tech-tag">pybind11</span>
-            <span class="tech-tag">FastAPI</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">D3.js</span>
-            <span class="tech-tag">SQLite</span>
-            <span class="tech-tag">JWT</span>
-            <span class="tech-tag">Docker</span>
-          </div>
-        </div>
-        <div class="proj-links">
-          <a href="https://github.com/KaranPandey01" target="_blank" class="proj-link primary">GitHub →</a>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-desc-col">
-          <p class="proj-desc">
-            A high-performance matching engine built in C++17 with price-time priority — bridged to a full Python/web stack via pybind11. Achieves 820K+ orders/sec sustained throughput. Features a portfolio/wallet system, real-time balance enforcement, and full transaction history.
-          </p>
-          <div class="proj-highlights-label">Technical highlights</div>
-          <ul class="proj-bullets">
-            <li>Built matching engine using <strong>std::map&lt;int64_t, deque&lt;Order&gt;&gt;</strong> with integer tick pricing to eliminate IEEE 754 floating-point correctness bugs present in naive implementations</li>
-            <li>Implemented <strong>O(1) order cancellation</strong> via unordered_map&lt;order_id, deque::iterator&gt; pointing directly into per-level FIFO queues; benchmarked <span class="n">820K+</span> orders/sec at 1M order load</li>
-            <li>Bridged C++ engine to Python via <strong>pybind11</strong>; exposed 13 REST endpoints through FastAPI with JWT (HS256) auth, bcrypt password hashing, and SQLite persistence using WAL mode</li>
-            <li>Designed portfolio/wallet system with <strong>real-time balance enforcement</strong>, automatic refunds on cancellation, holdings tracking with average price calculation, and full transaction history</li>
-          </ul>
-        </div>
-        <div class="proj-metrics-col">
-          <div>
-            <div class="pm-label">Performance</div>
-            <div class="pm-grid">
-              <div class="pm-cell"><div class="pm-val">820K+</div><div class="pm-desc">Orders/sec throughput</div></div>
-              <div class="pm-cell"><div class="pm-val">O(1)</div><div class="pm-desc">Order cancellation</div></div>
-              <div class="pm-cell"><div class="pm-val b">13</div><div class="pm-desc">REST endpoints</div></div>
-              <div class="pm-cell"><div class="pm-val b">1M</div><div class="pm-desc">Order load tested</div></div>
-            </div>
-          </div>
-          <div class="tech-section">
-            <div class="pm-label">Architecture</div>
-            <div class="tech-grid">
-              <span class="tech-tag">Price-time priority</span>
-              <span class="tech-tag">WAL-mode SQLite</span>
-              <span class="tech-tag">pybind11 bridge</span>
-              <span class="tech-tag">JWT auth</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Fraud Detection -->
     <div class="proj-card fade-up d2">
@@ -251,6 +253,8 @@
         </div>
       </div>
     </div>
+
+
 
   </div>
 </section>
