@@ -52,6 +52,7 @@
   letter-spacing:-0.04em;
   position:relative; overflow:hidden;
 }
+.profile-avatar img { width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
 .profile-avatar::before {
   content:'';
   position:absolute; inset:0;
@@ -196,14 +197,14 @@
 
         <div class="fade-up d3">
           <div class="profile-card">
-            <div class="profile-avatar"><span>KP</span></div>
+            <div class="profile-avatar"><img src="assets/profile.jpg" alt="Karan Pandey"></div>
             <div class="profile-info">
               <div class="profile-name">Karan Pandey</div>
               <div class="profile-role">Backend · Distributed Systems · ML</div>
               <div class="profile-row"><span class="pr-key">Location</span><span class="pr-val">Delhi NCR, India</span></div>
               <div class="profile-row"><span class="pr-key">Degree</span><span class="pr-val">B.Tech CSE + DS</span></div>
               <div class="profile-row"><span class="pr-key">Graduation</span><span class="pr-val">May 2027</span></div>
-              <div class="profile-row"><span class="pr-key">CGPA</span><span class="pr-val" style="color:var(--green)">8.21 / 10</span></div>
+              <div class="profile-row"><span class="pr-key">CGPA</span><span class="pr-val" style="color:var(--green)">8.24 / 10</span></div>
               <div class="profile-row"><span class="pr-key">Status</span><span class="pr-val" style="color:var(--green)">Open to roles</span></div>
               <div class="profile-row"><span class="pr-key">Phone</span><span class="pr-val">+91 9971276894</span></div>
             </div>
@@ -271,7 +272,7 @@
           </div>
         </div>
         <div class="edu-cgpa">
-          <div class="cgpa-num">8.21</div>
+          <div class="cgpa-num">8.24</div>
           <div class="cgpa-label">CGPA / 10</div>
         </div>
       </div>
