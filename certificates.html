@@ -17,6 +17,8 @@
 .cert-card.internship .cert-stripe { background:linear-gradient(90deg,var(--green),transparent); }
 .cert-card.ibm .cert-stripe { background:linear-gradient(90deg,#1f70c1,transparent); }
 .cert-card.nptel .cert-stripe { background:linear-gradient(90deg,#c0392b,transparent); }
+.cert-card.oracle .cert-stripe { background:linear-gradient(90deg,#f80000,transparent); }
+.badge-red { background:rgba(248,0,0,0.08); border:1px solid rgba(248,0,0,0.25); color:#ff5c4d; }
 .cert-stripe { height:3px; width:100%; }
 .cert-card-body { padding:20px 22px; flex:1; display:flex; flex-direction:column; gap:10px; }
 .cert-issuer-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -31,7 +33,7 @@
 .cert-action-btn { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-family:var(--mono); padding:6px 12px; border-radius:3px; text-decoration:none; transition:all 0.15s; letter-spacing:0.04em; }
 .cert-action-view { background:var(--green-dim); color:var(--green); border:1px solid var(--border2); }
 .cert-action-view:hover { background:rgba(0,255,136,0.12); }
-.cert-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:32px; }
+.cert-stats { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:32px; }
 .cs-cell { background:var(--bg2); padding:18px 16px; text-align:center; }
 .cs-num { font-size:28px; font-weight:700; color:var(--green); line-height:1; margin-bottom:4px; }
 .cs-label { font-size:10px; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; }
@@ -74,7 +76,8 @@
     <div class="cs-cell"><div class="cs-num">3</div><div class="cs-label">Internship Certs</div></div>
     <div class="cs-cell"><div class="cs-num" style="color:var(--blue)">5</div><div class="cs-label">IBM Certs</div></div>
     <div class="cs-cell"><div class="cs-num" style="color:#c0392b">1</div><div class="cs-label">NPTEL</div></div>
-    <div class="cs-cell"><div class="cs-num" style="color:var(--amber)">9+</div><div class="cs-label">Total</div></div>
+    <div class="cs-cell"><div class="cs-num" style="color:#ff5c4d">1</div><div class="cs-label">Oracle</div></div>
+    <div class="cs-cell"><div class="cs-num" style="color:var(--amber)">10+</div><div class="cs-label">Total</div></div>
   </div>
 
   <div class="filter-row fade-up d2">
@@ -82,9 +85,29 @@
     <button class="filter-btn" onclick="filterCerts('internship',this)">Internships</button>
     <button class="filter-btn" onclick="filterCerts('ibm',this)">IBM</button>
     <button class="filter-btn" onclick="filterCerts('nptel',this)">NPTEL</button>
+    <button class="filter-btn" onclick="filterCerts('oracle',this)">Oracle</button>
   </div>
 
   <div class="cert-grid" id="certGrid">
+
+    <!-- Oracle -->
+    <div class="cert-card oracle fade-up d1" data-cat="oracle">
+      <div class="cert-stripe"></div>
+      <div class="cert-card-body">
+        <div class="cert-issuer-row">
+          <span class="badge badge-red">Oracle</span>
+          <span class="cert-issuer">Oracle University</span>
+        </div>
+        <div class="cert-name">Oracle Agentic AI Certified Foundations Associate</div>
+        <div class="cert-meta">
+          <span class="cert-date">Issued Aug 2026</span>
+        </div>
+        <div class="cert-id">ID: 330419718AAI26OFA</div>
+        <div class="cert-actions">
+          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=351DFC903FA4A6C7E32B5941479E71F48C449736DBAD775501EC073C8E0F15AC" target="_blank" class="cert-action-btn cert-action-view">View Certificate ↗</a>
+        </div>
+      </div>
+    </div>
 
     <!-- NPTEL -->
     <div class="cert-card nptel fade-up d1" data-cat="nptel">
